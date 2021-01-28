@@ -7,14 +7,17 @@ const petSchema = new Pet(
       required: true,
       trim: true
     },
-    kind: {
-      type: Array
+    type: {
+      type: [String]
     },
     age: {
       type: Number,
     },
+    gender: {
+      type: String
+    },
     location: {
-      type: Number,
+      type: String,
       required: true,
       length: 5
     },
