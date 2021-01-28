@@ -1,0 +1,16 @@
+.HeaderContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #FFFFFF;
+  height: 15vh;
+  width: 100vw;
+}
+
+.HeaderTitle {
+  font-family: serif;
+  color: #69D3C4;
+  font-size: 100px;
+  text-decoration: none;
+}
