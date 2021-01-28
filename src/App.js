@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Portal from './components/Portal';
+import Portal from './components/Login';
 
 function App() {
   return (

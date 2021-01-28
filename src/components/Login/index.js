@@ -3,7 +3,7 @@ import './index.css';
 
 function Portal() {
   return (
-    <div className="PortalSection">
+    <div className="LoginSection">
       <div className="LoginContainer">
         <div className="LoginTitle">Login</div>
         <div className="LoginCredentials">
