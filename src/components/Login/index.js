@@ -13,7 +13,7 @@ function Portal() {
           </div>
           <div className="LoginPassword">
             <label for="password">password</label>
-            <input className="LoginPasswordInputField" name="password" type="input"></input>
+            <input className="LoginPasswordInputField" name="password" type="password"></input>
           </div>
           <div className="SignupLink" href="/signup">Signup Instead</div>
         </div>

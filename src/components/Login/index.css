@@ -12,7 +12,7 @@
 .LoginContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: #FFFFFF;
   width: 65%;
@@ -30,7 +30,7 @@
   align-items: center;
   font-family: serif;
   color: #69D3C4;
-  font-size: 50px;
+  font-size: 6vh;
   height: 20%;
   width: 100%;
 }
@@ -79,8 +79,9 @@ input {
   font-size: 30px;
   border: none;
   border-radius: 5px;
-  width: 50%;
+  width: 80%;
   height: 50%;
+  text-align: center;
 }
 
 input:hover {
@@ -94,5 +95,5 @@ input:hover {
   text-decoration: none;
 }
 .SignupLink:hover {
-  text-shadow: 0 0 .5px rgba(0, 255, 234, 0.4);;
+  text-shadow: 0 0 1px rgba(0, 255, 234, 0.8);;
 }
