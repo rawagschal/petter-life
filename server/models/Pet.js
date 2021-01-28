@@ -11,7 +11,7 @@ const petSchema = new Pet(
       type: [String]
     },
     age: {
-      type: Number,
+      type: Number
     },
     gender: {
       type: String
