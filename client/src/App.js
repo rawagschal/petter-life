@@ -1,19 +1,17 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Nav from './components/Nav';
+import Homepage from './pages/Homepage';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <Header/>
-      {/* <Login/> */}
-      <Signup/>
-      <Footer/>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/" component={ Homepage } />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
