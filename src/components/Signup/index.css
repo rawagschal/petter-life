@@ -1,0 +1,111 @@
+.SignupSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url('../../../src/assets/cover-image/petterLife-bg-13\ 2.png');
+  background-size: cover;
+  height: 75vh;
+  width: 100vw;
+}
+
+.SignupContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFFFF;
+  width: 65%;
+  height: 85%;
+  margin: 2.5% 5% 2.5% 5%;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  border: solid 5px rgba(0, 255, 234, 0.4);
+}
+
+.SignupTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-family: serif;
+  color: #69D3C4;
+  font-size: 200%;
+  height: 15%;
+  width: 100%;
+}
+
+.SignupCredentials {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-family: serif;
+  color: #69D3C4;
+  font-size: 130%;
+  text-decoration: none;
+  height: 90%;
+  width: 65%;
+}
+
+.SignupUsername {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 22.5%;
+  width: 100%;
+}
+
+.SignupEmail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 22.5%;
+  width: 100%;
+}
+
+.SignupPassword {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 22.5%;
+  width: 100%;
+}
+
+label {
+  font-size: 130%;
+  margin: 0% 0% 1% 0%;
+}
+
+input {
+  background-color: #69D3C4;
+  color: #FFFFFF;
+  font-family: serif;
+  font-size: 130%;
+  border: none;
+  border-radius: 5px;
+  width: 80%;
+  height: 40%;
+  text-align: center;
+}
+
+input:hover {
+  box-shadow: 0 0 10px rgba(0, 255, 234, 0.8);
+}
+
+.LoginLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-family: serif;
+  color: #69D3C4;
+  font-size: 120%;
+  text-decoration: none;
+}
+.LoginLink:hover {
+  text-shadow: 0 0 1px rgba(0, 255, 234, 0.8);;
+}
