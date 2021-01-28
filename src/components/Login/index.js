@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-function Portal() {
+function Login() {
   return (
     <div className="LoginSection">
       <div className="LoginContainer">
@@ -15,11 +15,11 @@ function Portal() {
             <label for="password">password</label>
             <input className="LoginPasswordInputField" name="password" type="password"></input>
           </div>
-          <div className="SignupLink" href="/signup">Signup Instead</div>
+          <div className="SignupLink" href="/Signup">Signup Instead</div>
         </div>
       </div>
     </div>
   );
 }
 
-export default Portal;
+export default Login;

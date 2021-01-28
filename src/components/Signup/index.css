@@ -1,4 +1,4 @@
-.LoginSection {
+.SignupSection {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -9,7 +9,7 @@
   width: 100vw;
 }
 
-.LoginContainer {
+.SignupContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -23,7 +23,7 @@
   border: solid 5px rgba(0, 255, 234, 0.4);
 }
 
-.LoginTitle {
+.SignupTitle {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -35,7 +35,7 @@
   width: 100%;
 }
 
-.LoginCredentials {
+.SignupCredentials {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -48,7 +48,7 @@
   width: 65%;
 }
 
-.LoginUsername {
+.SignupUsername {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,7 +57,7 @@
   width: 100%;
 }
 
-.LoginEmail {
+.SignupEmail {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,7 +66,7 @@
   width: 100%;
 }
 
-.LoginPassword {
+.SignupPassword {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,7 +96,7 @@ input:hover {
   box-shadow: 0 0 10px rgba(0, 255, 234, 0.8);
 }
 
-.SignupLink {
+.LoginLink {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -106,6 +106,6 @@ input:hover {
   font-size: 120%;
   text-decoration: none;
 }
-.SignupLink:hover {
+.LoginLink:hover {
   text-shadow: 0 0 1px rgba(0, 255, 234, 0.8);;
 }

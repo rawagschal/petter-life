@@ -2,13 +2,15 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Portal from './components/Login';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 function App() {
   return (
     <div>
       <Header/>
-      <Portal/>
+      {/* <Login/> */}
+      <Signup/>
       <Footer/>
     </div>
   );
