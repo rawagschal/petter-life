@@ -11,9 +11,10 @@ const typeDefs = gql`
   },
   type Pet {
     _id: ID
-    name: String
-    kind: Array
-    location: Number
+    name: String!
+    type: [String]
+    age: Int
+    location: String!
     description: String
   }
   type Query {
