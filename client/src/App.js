@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -20,7 +21,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    // <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
       <Router>
         <div>
             <Switch>
@@ -30,7 +31,7 @@ function App() {
             </Switch>
         </div>
       </Router>
-    // </ApolloProvider>
+   </ApolloProvider>
   );
 }
 
