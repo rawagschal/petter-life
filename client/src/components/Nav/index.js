@@ -61,7 +61,7 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="dog emoji"></span>
+          <span role="img" aria-label="dog emoji">🐕</span>
           A Petter Life
         </Link>
       </h1>
