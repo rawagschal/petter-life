@@ -1,7 +1,15 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import { useMutation } from '@apollo/react-hooks';
+import Auth from "../utils/auth";
+import { ADD_USER } from "../utils/mutations";
 import './index.css';
 
 function Signup() {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [addUser] = useMutation(ADD_USER);
+
+  
   return (
     <div className="SignupSection">
       <div className="SignupContainer">
@@ -19,7 +27,9 @@ function Signup() {
             <label for="password">password</label>
             <input className="SignupPasswordInputField" name="password" type="password"></input>
           </div>
-          <div className="LoginLink" href="/signup">Login</div>
+          <Link className="LoginLink" to="/login">
+          Log In Instead
+          </Link>
         </div>
       </div>
     </div>

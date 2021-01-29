@@ -15,7 +15,7 @@ function Login() {
             <label for="password">password</label>
             <input className="LoginPasswordInputField" name="password" type="password"></input>
           </div>
-          <div className="SignupLink" href="/Signup">Signup Instead</div>
+          <Link className="SignupLink" href="/Signup">Signup Instead</Link>
         </div>
       </div>
     </div>
