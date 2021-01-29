@@ -13,9 +13,13 @@ const typeDefs = gql`
     _id: ID
     name: String!
     type: [String]
-    age: Int
-    location: String!
-    description: String
+    age: Int,
+    gender: String,
+    breed: String,
+    fixed: Boolean,
+    personality: String,
+    location: Int,
+    available: Boolean
   }
   type Query {
     helloWorld: String

@@ -8,22 +8,30 @@ const petSchema = new Pet(
       trim: true
     },
     type: {
-      type: [String]
+      type: [String],
+      required: true,
+      trim: true
     },
     age: {
-      type: Number
+      type: Number,
+      required: true,
+      trim: true
     },
-    gender: {
-      type: String
+    preferredPronoun: {
+      type: String,
+      trim: true
     },
     location: {
-      type: String,
+      type: Number,
       required: true,
       length: 5
     },
     description: {
       type: String,
       required: true
+    },
+    available: {
+      type: Boolean
     }
   },
   {
