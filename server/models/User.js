@@ -20,14 +20,11 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
-    pets: {
-      type: Schema.Types.ObjectId,
-      ref: Pet
+    phoneNumber: {
+      type: Number
     },
-    likedPets: {
-      type: Schema.Types.ObjectId,
-      ref: Pet
-    },
+    likedPets: [Pet.schema],
+    addedPets: [Pet.schema],
     toJSON: {
       virtuals: true
     }
