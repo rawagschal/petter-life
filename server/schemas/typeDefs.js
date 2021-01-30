@@ -8,17 +8,41 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-  },
+    phoneNumber: Int
+    likedPets: [Pet]
+    ownedPets: [Pet]
+  }
+
   type Pet {
     _id: ID
     name: String!
     type: [String]
-    age: Int
-    location: String!
-    description: String
+    age: Int,
+    gender: String,
+    breed: String,
+    fixed: Boolean,
+    location: Int,
+    description: String,
+    available: Boolean
   }
+  
+  type Auth {
+    token: ID
+    user: User
+  }
+  
   type Query {
-    helloWorld: String
+    user: User
+    pet: [Pet]
+  }
+
+  type Mutation {
+    addUser(username: String!, email: String!, password: String!): Auth
+    updateUser(username: String, email: String, password: String): User
+    login(email: String!, password: String!): Auth
+
+    # addPet(pets: [ID]!: User.pets)
+    # addSavedPet(pets: [ID]!: User.savedPets)
   }
 `;
 
