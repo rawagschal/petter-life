@@ -13,8 +13,7 @@ function Signup(props) {
     event.preventDefault();
     const mutationResponse = await addUser({
       variables: {
-        email: formState.email, password: formState.password,
-        firstName: formState.firstName, lastName: formState.lastName
+        username: formState.email, email: formState.email, password: formState.password
       }
     });
     const token = mutationResponse.data.addUser.token;

@@ -53,6 +53,11 @@ function Login(props) {
               onChange={handleChange} 
             />
           </div>
+          {
+            error ? <div>
+              <p>Your credentials are incorrect</p>
+            </div> : null
+          }
           <button className="LoginBtn" type="submit">Login</button>
           <Link className="SignupLink" to="/signup">Signup Instead</Link>
         </form>
