@@ -4,8 +4,10 @@ export const QUERY_USER = gql`
 {
   user {
     username
-    savedPets
-    ownedPets
+    email
+    phoneNumber
+    likedPets
+    addedPets
   }
 }
 `;

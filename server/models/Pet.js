@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const petSchema = new Pet(
+const petSchema = new Schema(
   {
     name: {
       type: String,
@@ -17,14 +17,20 @@ const petSchema = new Pet(
       required: true,
       trim: true
     },
-    preferredPronoun: {
+    gender: {
       type: String,
       trim: true
     },
+    breed: {
+      type: String,
+      trim: true
+    },
+    fixed: {
+      type: Boolean
+    },
     location: {
-      type: Number,
+      type: String,
       required: true,
-      length: 5
     },
     description: {
       type: String,
@@ -32,6 +38,10 @@ const petSchema = new Pet(
     },
     available: {
       type: Boolean
+    },
+    createdAt: {
+      type: Date, 
+      default: Date.now
     }
   },
   {
