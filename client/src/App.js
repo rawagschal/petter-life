@@ -3,6 +3,8 @@ import './App.css';
 import Homepage from './pages/Homepage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -24,11 +26,13 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
+          <Header/>
             <Switch>
               <Route exact path="/" component={Homepage} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
             </Switch>
+          <Footer/>
         </div>
       </Router>
    </ApolloProvider>

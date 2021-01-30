@@ -13,10 +13,11 @@ function Signup(props) {
     event.preventDefault();
     const mutationResponse = await addUser({
       variables: {
-        username: formState.email, email: formState.email, password: formState.password
+        username: formState.username, email: formState.email, password: formState.password
       }
     });
     const token = mutationResponse.data.addUser.token;
+    console.log('token', token);
     Auth.login(token);
   };
 
@@ -34,7 +35,7 @@ function Signup(props) {
         <div className="SignupTitle">Signup</div>
         <form className="SignupCredentials" onSubmit={handleFormSubmit}>
           <div className="SignupUsername">
-            <label for="username">username</label>
+            <label htmlFor="username">username</label>
             <input 
               className="SignupUsernameInputField" 
               name="username" 
@@ -43,11 +44,11 @@ function Signup(props) {
             />
           </div>
           <div className="SignupEmail">
-            <label for="email">email</label>
+            <label htmlFor="email">email</label>
             <input className="SignupEmailInputField" name="email" type="email" onChange={handleChange}></input>
           </div>
           <div className="SignupPassword">
-            <label for="password">password</label>
+            <label htmlFor="password">password</label>
             <input 
               className="SignupPasswordInputField" 
               name="password" 
@@ -55,8 +56,8 @@ function Signup(props) {
               onChange={handleChange}
             />
           </div>
+          <button className="SignupBtn" type="submit">Submit</button>
         </form> 
-        <button className="SignupBtn" type="submit">Submit</button>
         <Link className="LoginLink" to="/login">Log In Instead</Link>
       </div>
     </div>
