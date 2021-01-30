@@ -6,11 +6,9 @@ const resolvers = {
   Query: {
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'pets.savedPets',
-          populate: 'savedPets',
-          populate: "pets"
-        });
+        const user = await User.findById(context.user._id)
+          
+        
 
         return user;
       }
@@ -19,17 +17,13 @@ const resolvers = {
     },
 
     pet: async (parent, { _id }) => {
+      const pet = await Pet;
       return pet;
     },
   },
 
   Mutation: {
     addUser: async (parent, args) => {
-      const user = await User.create(args);
-      const token = signToken(user);
-
-      return { token, user };
-    }, addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
 
