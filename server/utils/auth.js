@@ -18,7 +18,7 @@ module.exports = {
     }
 
     console.log("token", token)
-
+    console.log(secret, expiration);
 
     if (!token) {
       return req;

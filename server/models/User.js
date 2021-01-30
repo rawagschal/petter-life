@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-
+const Pet = require('./Pet')
 const userSchema = new Schema(
   {
     username: {
@@ -25,9 +25,7 @@ const userSchema = new Schema(
     },
     likedPets: [Pet.schema],
     addedPets: [Pet.schema],
-    toJSON: {
-      virtuals: true
-    }
+    
   }
 );
 
