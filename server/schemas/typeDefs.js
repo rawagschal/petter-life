@@ -8,9 +8,9 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    phoneNumber: phoneNumber
+    phoneNumber: Int
     likedPets: [Pet]
-    addedPets: [Pet]
+    ownedPets: [Pet]
   }
 
   type Pet {
@@ -33,7 +33,7 @@ const typeDefs = gql`
   
   type Query {
     user: User
-    pets: [Pet]
+    pet: [Pet]
   }
 
   type Mutation {
