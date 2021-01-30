@@ -8,9 +8,9 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    phoneNumber: phoneNumber
+    phoneNumber: Int
     likedPets: [Pet]
-    addedPets: [Pet]
+    ownedPets: [Pet]
   }
 
   type Pet {
@@ -23,6 +23,8 @@ const typeDefs = gql`
     fixed: Boolean,
     location: Int,
     description: String,
+    personality: String,
+    location: Int,
     available: Boolean
   }
   
@@ -34,13 +36,14 @@ const typeDefs = gql`
   type Query {
     user: User
     pets: [Pet]
+    user: user
+    pets: [Pets]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
-
     # addPet(pets: [ID]!: User.pets)
     # addSavedPet(pets: [ID]!: User.savedPets)
   }
