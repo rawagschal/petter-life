@@ -29,7 +29,7 @@ const petSchema = new Schema(
       type: Boolean
     },
     location: {
-      type: String,
+      type: Number,
       required: true,
     },
     description: {
