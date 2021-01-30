@@ -14,6 +14,7 @@ function Login(props) {
     try {
       const mutationResponse = await login({ variables: { username: formState.username, password: formState.password } })
       const token = mutationResponse.data.login.token;
+      console.log('token', token)
       Auth.login(token);
     } catch (e) {
       console.log(e)
@@ -34,7 +35,7 @@ function Login(props) {
         <div className="LoginTitle">Login</div>
         <form className="LoginCredentials" onSubmit={handleFormSubmit}>
           <div className="LoginUsername">
-            <label for="username">username</label>
+            <label HTMLfor="username">username</label>
             <input 
               className="LoginUsernameInputField" 
               id="username" 
@@ -44,7 +45,7 @@ function Login(props) {
             />
           </div>
           <div className="LoginPassword">
-            <label for="password">password</label>
+            <label HTMLfor="password">password</label>
             <input 
               className="LoginPasswordInputField" 
               id="pwd" 
