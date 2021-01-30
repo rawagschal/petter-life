@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Pet } = require('../models');
+const { User, Pet } = require('./typeDefs');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -19,6 +19,7 @@ const resolvers = {
     },
 
     pet: async (parent, { _id }) => {
+      const pet = await Pet;
       return pet;
     },
   },

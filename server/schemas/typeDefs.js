@@ -24,7 +24,6 @@ const typeDefs = gql`
     location: Int,
     description: String,
     personality: String,
-    location: Int,
     available: Boolean
   }
   
@@ -35,9 +34,7 @@ const typeDefs = gql`
   
   type Query {
     user: User
-    pets: [Pet]
-    user: user
-    pets: [Pets]
+    pet: [Pet]
   }
 
   type Mutation {
