@@ -1,6 +1,7 @@
 import React from 'react';
 import Signup from '../Signup'
 import Auth from '../../utils/auth';
+import AddPetForm from '../AddPetForm';
 
 
 function Homepage() {
@@ -9,11 +10,16 @@ function Homepage() {
   function showSignup() {
     if (Auth.loggedIn()) {
       return (
-        <button>
-          <a href="/" onClick={() => Auth.logout()}>
-            Logout
+        <div>
+          <button>
+            <a href="/" onClick={() => Auth.logout()}>
+              Logout
             </a>
-        </button>
+          </button>
+          <AddPetForm />
+        </div>
+
+
       );
     } else {
       return (
