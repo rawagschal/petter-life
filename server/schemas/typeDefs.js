@@ -15,15 +15,9 @@ const typeDefs = gql`
   }
 
   type Pet {
-<<<<<<< HEAD
-    _id: ID
-    name: String!
-    type: String
-=======
     _id: ID!,
     name: String!,
     type: String!,
->>>>>>> 9cfb844ed4b7c91f538244ff72fafa383ec84b8a
     age: Int,
     gender: String,
     breed: String,
