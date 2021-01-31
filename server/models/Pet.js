@@ -8,13 +8,12 @@ const petSchema = new Schema(
       trim: true
     },
     type: {
-      type: [String],
+      type: String,
       required: true,
       trim: true
     },
     age: {
       type: Number,
-      required: true,
       trim: true
     },
     gender: {
@@ -34,7 +33,7 @@ const petSchema = new Schema(
     },
     description: {
       type: String,
-      required: true
+      required: true,
     },
     available: {
       type: Boolean

@@ -24,11 +24,11 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, args) => {
-      console.log('args', args)
+      // console.log('args', args)
       const user = await User.create(args);
-      console.log('user', user)
+      // console.log('user', user)
       const token = signToken(user);
-      console.log('token', token)
+      // console.log('token', token)
       return { token, user };
     },
 
@@ -57,6 +57,23 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+
+    addOwnedPet: async (parent, args, context) => {
+      //check if user is logged in
+      console.log(context.user);
+      // if (context.user) {
+        //if a user is logged in, create a new pet
+        // const pet = new Pet(args);
+        console.log(args);
+        const pet = await Pet.create(args);
+        console.log(pet);
+        // ._doc to get raw data from object
+        return { ...pet._doc };
+        //push the new pet into that user’s ownedPets array
+        // await User.findByIdAndUpdate(context.user._id, { $push: { ownedPets: pet } });
+        // return pet;
+      // }
     }
   }
 };
