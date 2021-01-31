@@ -1,6 +1,7 @@
 //import the gql tagged template function
 const { gql } = require("apollo-server-express");
 
+
 // create our typeDefs
 const typeDefs = gql`
   type User {
@@ -8,14 +9,19 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+<<<<<<< HEAD
     phoneNumber: String
+=======
+    phoneNumber: Int
+>>>>>>> d834a42223241fab97cfbb9a18fa0693b8c836d9
     likedPets: [Pet]
-    addedPets: [Pet]
+    ownedPets: [Pet]
   }
 
   type Pet {
     _id: ID
     name: String!
+<<<<<<< HEAD
     type: String
     age: Int
     gender: String
@@ -23,6 +29,16 @@ const typeDefs = gql`
     fixed: Boolean
     location: Int
     description: String
+=======
+    type: [String]
+    age: Int,
+    gender: String,
+    breed: String,
+    fixed: Boolean,
+    location: Int,
+    description: String,
+    personality: String,
+>>>>>>> d834a42223241fab97cfbb9a18fa0693b8c836d9
     available: Boolean
   }
 
@@ -33,13 +49,14 @@ const typeDefs = gql`
 
   type Query {
     user: User
-    pets: [Pet]
+    pet: [Pet]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
+<<<<<<< HEAD
     addPet(
       name: String!
       type: String
@@ -52,6 +69,8 @@ const typeDefs = gql`
       available: Boolean
     ): Pet
 
+=======
+>>>>>>> d834a42223241fab97cfbb9a18fa0693b8c836d9
     # addPet(pets: [ID]!: User.pets)
     # addSavedPet(pets: [ID]!: User.savedPets)
   }

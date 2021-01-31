@@ -1,3 +1,4 @@
+const Pet = require('./Pet');
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 const Pet = require('./Pet')
@@ -24,8 +25,7 @@ const userSchema = new Schema(
       type: Number
     },
     likedPets: [Pet.schema],
-    addedPets: [Pet.schema],
-    
+    ownedPets: [Pet.schema],
   }
 );
 

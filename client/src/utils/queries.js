@@ -7,7 +7,7 @@ export const QUERY_USER = gql`
     email
     phoneNumber
     likedPets
-    addedPets
+    ownedPets
   }
 }
 `;

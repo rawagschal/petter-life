@@ -29,7 +29,7 @@ const petSchema = new Schema(
       type: Boolean
     },
     location: {
-      type: String,
+      type: Number,
       required: true,
     },
     description: {
@@ -44,11 +44,6 @@ const petSchema = new Schema(
       default: Date.now
     }
   },
-  {
-    toJSON: {
-      virtuals: true
-    }
-  }
 );
 
 const Pet = model('Pet', petSchema);
