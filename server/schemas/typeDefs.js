@@ -15,9 +15,15 @@ const typeDefs = gql`
   }
 
   type Pet {
+<<<<<<< HEAD
     _id: ID
     name: String!
     type: String
+=======
+    _id: ID!,
+    name: String!,
+    type: String!,
+>>>>>>> 9cfb844ed4b7c91f538244ff72fafa383ec84b8a
     age: Int,
     gender: String,
     breed: String,
@@ -42,7 +48,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
     login(username: String!, password: String!): Auth
-    addOwnedPet(name: String!, type: String!, age: Int, gender: String, breed: String, fixed: Boolean, location: Int, description: String!, available: Boolean): Pet 
+    addOwnedPet(name: String!, type: String!, age: Int, gender: String, breed: String, fixed: Boolean, location: Int!, description: String!, available: Boolean): Pet
+  }
 `;
 
 module.exports = typeDefs;

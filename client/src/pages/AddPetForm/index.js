@@ -1,7 +1,12 @@
-import React from "react";
+import  React, { useState } from "react";
+import { useMutation } from '@apollo/react-hooks';
+import { ADD_OWNED_PET } from '../../utils/mutations';
 import './index.css';
 
 function AddPetForm() {
+  const [formState, setFormState] = useState({ name: '', email: '', password: '' });
+
+  
 
   return (
     <div className="AddPetSection">
