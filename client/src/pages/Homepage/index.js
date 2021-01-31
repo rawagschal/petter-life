@@ -9,9 +9,11 @@ function Homepage() {
   function showSignup() {
     if (Auth.loggedIn()) {
       return (
-        <div>
-          
-        </div>
+        <button>
+          <a href="/" onClick={() => Auth.logout()}>
+            Logout
+            </a>
+        </button>
       );
     } else {
       return (
