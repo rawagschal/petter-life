@@ -17,7 +17,7 @@ const typeDefs = gql`
   type Pet {
     _id: ID
     name: String!
-    type: [String]
+    type: String
     age: Int,
     gender: String,
     breed: String,
@@ -42,10 +42,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
     login(username: String!, password: String!): Auth
-    # addPet(pets: [ID]!: User.pets)
-    # addSavedPet(pets: [ID]!: User.savedPets)
-  }
+    addOwnedPet(name: String!, type: String!, age: Int, gender: String, breed: String, fixed: Boolean, location: Int, description: String!, available: Boolean): Pet 
 `;
 
-// export the typeDefs
 module.exports = typeDefs;

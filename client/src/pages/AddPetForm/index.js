@@ -55,7 +55,7 @@ function AddPetForm() {
                 </select>
               </div>
               <div className="AddPetLocation">
-                <label HTMLfor="petLocation">Location:</label>
+                <label HTMLfor="petLocation">Location Zipcode:</label>
                 <input 
                   className="AddPetLocationInputField" 
                   id="petLocation" 
@@ -80,26 +80,3 @@ function AddPetForm() {
 }
 
 export default AddPetForm;
-
-// breed: {
-//   type: String,
-//   trim: true
-// },
-// fixed: {
-//   type: Boolean
-// },
-// location: {
-//   type: Number,
-//   required: true,
-// },
-// description: {
-//   type: String,
-//   required: true
-// },
-// available: {
-//   type: Boolean
-// },
-// createdAt: {
-//   type: Date, 
-//   default: Date.now
-// }

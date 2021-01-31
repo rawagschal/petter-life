@@ -5,11 +5,10 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     user: async (parent, args, context) => {
+      console.log(args, context);
       if (context.user) {
         const user = await User.findById(context.user._id)
-          
-        
-
+  
         return user;
       }
 
@@ -24,11 +23,8 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, args) => {
-      console.log('args', args)
       const user = await User.create(args);
-      console.log('user', user)
       const token = signToken(user);
-      console.log('token', token)
       return { token, user };
     },
 
@@ -41,7 +37,6 @@ const resolvers = {
     },
 
     login: async (parent, { username, password }) => {
-      console.log(username, password)
       const user = await User.findOne({ username });
 
       if (!user) {
@@ -57,7 +52,20 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+
+    addOwnedPet: async (parent, args, context) => {
+     
+      //check if user is logged in
+      if (context.user) {
+        //if a user is logged in, create a new pet
+        const pet = await Pet.create(args);
+        //push the new pet into that user's ownedPets array
+        await User.findByIdAndUpdate(context.user._id, { $push: { ownedPets: pet } });
+        return pet;
+      }
     }
+
   }
 };
 

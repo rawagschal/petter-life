@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 
 const userSchema = new Schema(
   {
-    
     username: {
       type: String,
       required: true,
@@ -47,4 +46,4 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 const User = model('User', userSchema);
 
-module.exports = User;
+module.exports = User;  
