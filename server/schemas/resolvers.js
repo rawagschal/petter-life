@@ -64,14 +64,14 @@ const resolvers = {
 
           const pet = await Pet.create(args);
           console.log(pet);
-          //push the new pet into that user’s ownedPets array
-          const user = await User.findOne(context.user._id)
 
-          user.ownedPets.push(pet);
-          await user.save();
+          const user = await User.findByIdAndUpdate(context.user._id, { $push: {ownedPets: pet } })
+          
+          console.log(user.ownedPets);
 
           // ._doc to get raw data from object
           return { ...pet._doc };
+
 
         } catch (e) {
           console.log(e)
