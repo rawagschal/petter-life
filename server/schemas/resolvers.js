@@ -1,14 +1,14 @@
 const { AuthenticationError } = require('apollo-server-express');
+const { parseType } = require('graphql');
 const { User, Pet } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     user: async (parent, args, context) => {
-      console.log(args, context);
       if (context.user) {
         const user = await User.findById(context.user._id)
-  
+
         return user;
       }
 
@@ -57,21 +57,29 @@ const resolvers = {
     addOwnedPet: async (parent, args, context) => {
       //check if user is logged in
       console.log(context.user);
-      // if (context.user) {
-        //if a user is logged in, create a new pet
-        // const pet = new Pet(args);
-        console.log(args);
-        const pet = await Pet.create(args);
-        console.log(pet);
-        // ._doc to get raw data from object
-        return { ...pet._doc };
-        //push the new pet into that user’s ownedPets array
-        // await User.findByIdAndUpdate(context.user._id, { $push: { ownedPets: pet } });
-        // return pet;
-      // }
-    }
 
+      if (context.user) {
+ 
+        try {
+
+          const pet = await Pet.create(args);
+          console.log(pet);
+          //push the new pet into that user’s ownedPets array
+          const user = await User.findOne(context.user._id)
+
+          user.ownedPets.push(pet);
+          await user.save();
+
+          // ._doc to get raw data from object
+          return { ...pet._doc };
+
+        } catch (e) {
+          console.log(e)
+        }
+
+      }
+    }
   }
 };
 
-module.exports = resolvers;
+module.exports = resolvers;    

@@ -4,26 +4,27 @@ import { ADD_OWNED_PET } from '../../utils/mutations';
 import './index.css';
 
 function AddPetForm(props) {
-  const [formState, setFormState] = useState({ petName: '', petType: '', petAge: '', petDescription: '', petLocation: '', petFixed: '', petGender: ''});
+  const [formState, setFormState] = useState({ petName: '', petType: '', petAge: '', petDescription: '', petLocation: '', petFixed: 'Yes', petGender: 'Male'});
   const [addOwnedPet] = useMutation(ADD_OWNED_PET);
-
   const handleFormSubmit = async event => {
+    console.log("form submit is working on click")
     event.preventDefault();
-    const mutationResponse = await addOwnedPet({
+    console.log(formState)
+
+  const result = await addOwnedPet({
       variables: {
         name: formState.petName,
         type: formState.petType,
-        age: formState.petAge,
+        age: +formState.petAge,
         gender: formState.petGender,
-        location: formState.petLocation,
+        location: +formState.petLocation,
         description: formState.petDescription,
         fixed: formState.petFixed
       }
     });
 
-  const result = mutationResponse;
-  console.log(result);
-}
+    console.log(result);
+  }
     
 
 const handleChange = event => {
@@ -38,8 +39,7 @@ return (
   <div className="AddPetSection">
     <div className="AddPetContainer">
       <div className="AddPetTitle">Fill out this form to create your pet's adoption post</div>
-      <form onSubmit={handleFormSubmit}
-        className="AddPetInformation">
+      <form className="AddPetInformation" onSubmit={handleFormSubmit}>
         <div className="AddPetInformationInputContainer">
           <div className="AddPetFormLeft">
             <div className="AddPetName">
@@ -50,6 +50,7 @@ return (
                 name="petName"
                 type="input"
                 onChange={handleChange}
+                value={formState.petName}
               />
             </div>
             <div className="AddPetType">
@@ -59,6 +60,7 @@ return (
                 id="petType"
                 name="petType"
                 type="input"
+                value={formState.petType}
                 onChange={handleChange}
               />
             </div>
@@ -67,14 +69,15 @@ return (
               <input
                 className="AddPetAgeInputField"
                 id="petAge"
-                name="petName"
+                name="petAge"
                 type="input"
+                value={formState.petAge}
                 onChange={handleChange}
               />
             </div>
             <div className="AddPetGender">
                 <label htmlFor="petGender">Gender:</label>
-                <select className="AddPetGenderInputField" id="petGender" name="petGender" onChange={handleChange}>
+                <select className="AddPetGenderInputField" id="petGender" name="petGender" value={formState.petGender} onChange={handleChange}>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                 </select>
@@ -84,7 +87,7 @@ return (
           <div className="AddPetFormRight">
             <div className="AddFixedStatus">
                 <label htmlFor="petFixed">Fixed?</label>
-                <select className="AddPetFixedInputField" id="petFixed" name="petFixed" onChange={handleChange}>
+                <select className="AddPetFixedInputField" id="petFixed" name="petFixed" value={formState.petFixed} onChange={handleChange}>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                 </select>
@@ -96,6 +99,7 @@ return (
                 id="petLocation"
                 name="petLocation"
                 type="input"
+                value={formState.petLocation}
                 onChange={handleChange}
               />
             </div>
@@ -104,6 +108,7 @@ return (
               <textarea
                 className="AddPetDescriptionInputField"
                 name="petDescription"
+                value={formState.petDescription}
                 onChange={handleChange}
               />
             </div>
