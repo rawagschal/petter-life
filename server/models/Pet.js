@@ -18,14 +18,12 @@ const petSchema = new Schema(
     },
     gender: {
       type: String,
-      trim: true
-    },
-    breed: {
-      type: String,
-      trim: true
+      trim: true,
+      required: true
     },
     fixed: {
-      type: Boolean
+      type: String,
+      required: true
     },
     location: {
       type: Number,
@@ -34,13 +32,6 @@ const petSchema = new Schema(
     description: {
       type: String,
       required: true,
-    },
-    available: {
-      type: Boolean
-    },
-    createdAt: {
-      type: Date, 
-      default: Date.now
     }
   },
 );
