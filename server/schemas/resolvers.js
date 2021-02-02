@@ -75,17 +75,18 @@ const resolvers = {
 
           const user = await User.findByIdAndUpdate(
             { _id: context.user._id },
-            { $push: { ownedPets: pet._id } },
+            // changed from `{ ownedPets: pet._id }` because we want to 
+            // push the entire new Pet object, which we defined as ownedPet on line 69
+            { $push: { ownedPets: ownedPet } },
             { new: true }
           );
-
+          
+          // this should now log the user with a populated ownedPets array
+          // that includes all data for each ownedPet
           console.log("user", user);
-          console.log("user.ownedPets", user.ownedPets.name);
-
-          return pet;
-
-          // ._doc to get raw data from object
-          // return { ...pet._doc };
+          // changed from `return: pet` for the same reason as above comment
+          return ownedPet;
+         
         } catch (e) {
           console.log(e);
         }
