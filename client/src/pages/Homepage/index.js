@@ -2,6 +2,7 @@ import React from 'react';
 import Signup from '../Signup'
 import Auth from '../../utils/auth';
 import AddPetForm from '../AddPetForm';
+import PetList from '../../components/PetList';
 
 
 function Homepage() {
@@ -17,6 +18,8 @@ function Homepage() {
             </a>
           </button>
           <AddPetForm />
+          <PetList />
+          
         </div>
 
 
@@ -24,7 +27,14 @@ function Homepage() {
     } else {
       return (
         <div>
-          <Signup />
+          <div>
+            <Signup />
+          </div>
+
+          <div>
+            <PetList />
+          </div>
+
         </div>
       );
     }
