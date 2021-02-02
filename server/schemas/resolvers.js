@@ -55,28 +55,18 @@ const resolvers = {
     },
 
     addOwnedPet: async (parent, args, context) => {
-      //check if user is logged in
-      console.log(context.user);
-
       if (context.user) {
- 
-        try {
-          const pet = await Pet.create( { ...args, username: context.user.username } );
 
-          console.log(pet);
+        try {
+          const pet = await Pet.create({ ...args, username: context.user.username });
 
           const user = await User.findByIdAndUpdate(
             { _id: context.user._id },
             { $push: { ownedPets: pet._id } },
-           { new: true } 
-            );
+            { new: true }
+          );
 
-            console.log(user)
-            console.log(user.ownedPets.name);
-
-            return pet;
-          
-          
+          return pet;
 
           // ._doc to get raw data from object
           // return { ...pet._doc };
