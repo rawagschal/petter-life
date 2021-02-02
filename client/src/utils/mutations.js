@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
 export const LOGIN = gql`
   mutation login($username: String!, $password: String!) {
@@ -23,10 +23,9 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_OWNED_PET = gql `
+export const ADD_OWNED_PET = gql`
   mutation addOwnedPet($name: String!, $type: String!, $age: Int!, $fixed: String!, $location: Int!, $description: String!, $gender: String!) {
     addOwnedPet(name: $name, type: $type, age: $age, fixed: $fixed, location: $location, description: $description, gender: $gender) {
-      # createdAt
       name
       type
       description
@@ -36,4 +35,18 @@ export const ADD_OWNED_PET = gql `
       fixed
     }
   }
-`
+`;
+
+export const ADD_LIKED_PET = gql`
+  mutation addLikedPet($name: String!, $type: String!, $age: Int!, $fixed: String!, $location: Int!, $description: String!, $gender: String!) {
+    addLikedPet(name: $name, type: $type, age: $age, fixed: $fixed, location: $location, description: $description, gender: $gender) {
+      name
+      type
+      description
+      location
+      age
+      gender
+      fixed
+    }
+  }
+`;

@@ -1,6 +1,5 @@
 //import the gql tagged template function
-const { gql } = require('apollo-server-express');
-
+const { gql } = require("apollo-server-express");
 
 // create our typeDefs
 const typeDefs = gql`
@@ -32,7 +31,8 @@ const typeDefs = gql`
   
   type Query {
     user: User
-    pet: [Pet]
+    pet(_id: ID!): Pet
+    pets: [Pet]
   }
 
   type Mutation {
@@ -40,6 +40,7 @@ const typeDefs = gql`
     updateUser(username: String, email: String, password: String): User
     login(username: String!, password: String!): Auth
     addOwnedPet(name: String!, type: String!, age: Int!, gender: String!, fixed: String!, location: Int!, description: String!): Pet
+    addLikedPet(name: String!, type: String!, age: Int!, gender: String!, fixed: String!, location: Int!, description: String!): Pet
   }
 `;
 

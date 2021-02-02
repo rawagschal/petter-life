@@ -1,13 +1,25 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
 export const QUERY_USER = gql`
-{
-  user {
-    username
-    email
-    phoneNumber
-    likedPets
-    ownedPets
+  {
+    user {
+      username
+      email
+      phoneNumber
+      likedPets
+      ownedPets
+    }
   }
-}
+`;
+
+export const QUERY_PETS = gql`
+  {
+    pets {
+      name
+      age
+      location
+      gender
+      description
+    }
+  }
 `;
