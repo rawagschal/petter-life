@@ -61,22 +61,28 @@ const resolvers = {
       if (context.user) {
  
         try {
+          const pet = await Pet.create( { ...args, username: context.user.username } );
 
-          const pet = await Pet.create(args);
           console.log(pet);
 
-          const user = await User.findByIdAndUpdate(context.user._id, { $push: {ownedPets: pet } })
+          const user = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $push: { ownedPets: pet._id } },
+           { new: true } 
+            );
+
+            console.log(user)
+            console.log(user.ownedPets.name);
+
+            return pet;
           
-          console.log(user.ownedPets);
+          
 
           // ._doc to get raw data from object
-          return { ...pet._doc };
-
-
+          // return { ...pet._doc };
         } catch (e) {
           console.log(e)
         }
-
       }
     }
   }
