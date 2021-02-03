@@ -21,8 +21,17 @@ const resolvers = {
 
     pets: async () => {
       // const params = username ? { username } : {};
-      return Pet.find();
+      return await Pet.find();
     },
+
+    myLikedPets: async (_, args, context) => {
+
+        if (context.user) {
+          const user = await User.findById(context.user._id);
+         return user.likedPets
+        } 
+        throw new AuthenticationError("Not logged in");
+    }
   },
 
   Mutation: {
@@ -60,7 +69,7 @@ const resolvers = {
       return { token, user };
     },
 
-    addOwnedPet: async (parent, args, context) => {
+    addOwnedPet: async (_, args, context) => {
       //check if user is logged in
       console.log("context", context.user);
 
@@ -87,7 +96,7 @@ const resolvers = {
           console.log("user", user);
           
           return pet;
-         
+       
         } catch (e) {
           console.log(e);
         }
@@ -111,7 +120,43 @@ const resolvers = {
         return("You must be logged in to like a pet!");
       }
     },
+
+    deleteOwnedPet: async (_, args, context) => {
+      //check if user is logged in
+      console.log("context", context.user);
+      console.log(args);
+      if (context.user) {
+        try {
+          const deletedPet = await Pet.deleteOne({
+            _id: args.petId
+          });
+
+          // console.log("deleted pet", deletedPet);
+
+          const user = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $pull: { ownedPets :{
+              _id: args.petId
+            }} },
+            { new: true }
+          ).lean()
+
+          console.log("user", user);
+         
+
+          return user;
+
+          // ._doc to get raw data from object
+          // return { ...pet._doc };
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    },
   },
+
 };
+
+
 
 module.exports = resolvers;
