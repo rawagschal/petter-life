@@ -95,17 +95,20 @@ const resolvers = {
     },
 
     //add a liked pet to a user's model when they like a pet
-    addLikedPet: async (parent, args, context) => {
+    addLikedPet: async (parent, { _id }, context) => {
       if (context.user) {
-        const likedPet = await User.findOneAndUpdate(
+
+        const pet = await Pet.findById( _id );
+        
+        const user = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { likedPets: likedPet } },
+          { $push: { likedPets: pet } },
           { new: true }
         );
         console.log("user liked a pet", user);
-
+        return pet;
       } else {
-        return;
+        return("You must be logged in to like a pet!");
       }
     },
   },
