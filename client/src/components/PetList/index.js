@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_PETS } from "../../utils/queries";
 import './index.css';
-// import { ADD_LIKED_PET } from '../../utils/mutations';
+import { ADD_LIKED_PET, DELETE_LIKED_PET } from '../../utils/mutations';
 
 const PetList = ({ pets }) => {
 
@@ -18,6 +18,13 @@ const PetList = ({ pets }) => {
 
         setPetState(!petState)
         console.log(petState); 
+
+        if (petState.liked) {
+            //push pet into user's likedPets array
+            //use ADD_LIKED_PETS mutation
+        } else {
+            //PULL pet from user's likedPets array
+        }
     }
 
 

@@ -50,3 +50,17 @@ export const ADD_LIKED_PET = gql`
     }
   }
 `;
+
+export const DELETE_LIKED_PET = gql`
+  mutation deleteLikedPet($name: String!, $type: String!, $age: Int!, $fixed: String!, $location: Int!, $description: String!, $gender: String!) {
+    deleteLikedPet(name: $name, type: $type, age: $age, fixed: $fixed, location: $location, description: $description, gender: $gender) {
+      name
+      type
+      description
+      location
+      age
+      gender
+      fixed
+    }
+  }
+`;

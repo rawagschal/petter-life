@@ -26,11 +26,11 @@ const resolvers = {
 
     myLikedPets: async (_, args, context) => {
 
-        if (context.user) {
-          const user = await User.findById(context.user._id);
-         return user.likedPets
-        } 
-        throw new AuthenticationError("Not logged in");
+      if (context.user) {
+        const user = await User.findById(context.user._id);
+        return user.likedPets
+      }
+      throw new AuthenticationError("Not logged in");
     }
   },
 
@@ -90,34 +90,16 @@ const resolvers = {
             { $push: { ownedPets: pet } },
             { new: true }
           );
-          
+
           // this should now log the user with a populated ownedPets array
           // that includes all data for each ownedPet
           console.log("user", user);
-          
+
           return pet;
-       
+
         } catch (e) {
           console.log(e);
         }
-      }
-    },
-
-    //add a liked pet to a user's model when they like a pet
-    addLikedPet: async (parent, { _id }, context) => {
-      if (context.user) {
-
-        const pet = await Pet.findById( _id );
-        
-        const user = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $push: { likedPets: pet } },
-          { new: true }
-        );
-        console.log("user liked a pet", user);
-        return pet;
-      } else {
-        return("You must be logged in to like a pet!");
       }
     },
 
@@ -135,14 +117,18 @@ const resolvers = {
 
           const user = await User.findByIdAndUpdate(
             { _id: context.user._id },
-            { $pull: { ownedPets :{
-              _id: args.petId
-            }} },
+            {
+              $pull: {
+                ownedPets: {
+                  _id: args.petId
+                }
+              }
+            },
             { new: true }
           ).lean()
 
           console.log("user", user);
-         
+
 
           return user;
 
@@ -154,6 +140,62 @@ const resolvers = {
       }
     },
   },
+
+  //add a liked pet to a user's model when they like a pet
+  addLikedPet: async (parent, { _id }, context) => {
+    if (context.user) {
+
+      const pet = await Pet.findById(_id);
+
+      const user = await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $push: { likedPets: pet } },
+        { new: true }
+      );
+      console.log("user liked a pet", user);
+      return pet;
+    } else {
+      return ("You must be logged in to like a pet!");
+    }
+  },
+
+
+  deleteLikedPet: async (_, args, context) => {
+    //check if user is logged in
+    console.log("context", context.user);
+    console.log(args);
+    if (context.user) {
+      try {
+        const deletedPet = await Pet.deleteOne({
+          _id: args.petId
+        });
+
+        // console.log("deleted pet", deletedPet);
+
+        const user = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          {
+            $pull: {
+              likedPets: {
+                _id: args.petId
+              }
+            }
+          },
+          { new: true }
+        ).lean()
+
+        console.log("user", user);
+
+
+        return user;
+
+        // ._doc to get raw data from object
+        // return { ...pet._doc };
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }
 
 };
 
