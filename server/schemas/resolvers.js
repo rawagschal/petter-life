@@ -66,26 +66,27 @@ const resolvers = {
 
       if (context.user) {
         try {
-          const ownedPet = await Pet.create({
+          // changed from `const ownedPet` because we are just creating a new pet here
+          // that needs to be accessed by the dashboard for all users
+          const pet = await Pet.create({
             ...args,
             username: context.user.username,
           });
 
-          console.log("ownedPet", ownedPet);
+          console.log("new owned pet as pet:", pet);
 
           const user = await User.findByIdAndUpdate(
             { _id: context.user._id },
-            // changed from `{ ownedPets: pet._id }` because we want to 
-            // push the entire new Pet object, which we defined as ownedPet on line 69
-            { $push: { ownedPets: ownedPet } },
+            // here is where we are specifying that the new pet belongs to someone's ownedPets array
+            { $push: { ownedPets: pet } },
             { new: true }
           );
           
           // this should now log the user with a populated ownedPets array
           // that includes all data for each ownedPet
           console.log("user", user);
-          // changed from `return: pet` for the same reason as above comment
-          return ownedPet;
+          
+          return pet;
          
         } catch (e) {
           console.log(e);
@@ -98,9 +99,11 @@ const resolvers = {
       if (context.user) {
         const likedPet = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { likedPets: pet._id } },
+          { $push: { likedPets: likedPet } },
           { new: true }
         );
+        console.log("user liked a pet", user);
+
       } else {
         return;
       }
