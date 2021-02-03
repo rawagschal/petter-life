@@ -3,18 +3,9 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_PETS } from "../../utils/queries";
 
 
-const PetList = (pets) => {
+const PetList = ({pets}) => {
 
-    const [queryPets] = useQuery(QUERY_PETS);
-
-    const generateList = async event => {
-        event.preventDefault();
-        const pets = await queryPets({
-
-        });
-        console.log(generateList);
-    }
-
+    const {loading, data} = useQuery(QUERY_PETS);
 
 
     if (!pets.length) {
@@ -26,7 +17,7 @@ const PetList = (pets) => {
     return (
         <div>
             <h4>Pets available for adoption: </h4>
-            { pets && pets.map(pet => (
+            { !loading && data.map(pet => (
                 <ul key={pet._id}>
                     <li>{pet.name}</li>
                     <li>{pet.age}</li>
