@@ -1,0 +1,80 @@
+li {
+  list-style: none;
+  text-align: left;
+}
+
+.LikePetBtn {
+  font-size: 130%;
+  font-family: serif;
+  background-color: #69D3C4;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  height: 10%;
+  width: 50%;
+}
+
+.LikePetBtn:hover {
+  box-shadow: 0 0 10px rgba(0, 255, 234, 0.8);
+}
+
+.AvailablePetsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #FFFFFF;
+  width: 60%;
+  height: 75%;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  border: solid 5px rgba(0, 255, 234, 0.4);
+}
+
+.AvailablePetsTitle {
+  font-family: serif;
+  text-align: center;
+  color: #69D3C4;
+  font-size: 150%;
+  width: 100%;
+  padding: 1%;
+}
+
+.PetListingsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-family: serif;
+  color: #69D3C4;
+  height: 90%;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.PetListing{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: scroll;
+  border: solid 5px rgba(0, 255, 234, 0.4);
+  border-radius: 25px;
+  padding: 2.5%;
+  margin: 2.5%;
+  width: 80%;
+}
+
+.PetInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: left;
+  overflow: scroll;
+  margin: 2.5%;
+}
+
+

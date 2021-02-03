@@ -11,7 +11,7 @@ function AddPetForm(props) {
     event.preventDefault();
     console.log(formState)
 
-  const result = await addOwnedPet({
+    const result = await addOwnedPet({
       variables: {
         name: formState.petName,
         type: formState.petType,
@@ -114,7 +114,7 @@ return (
             </div>
           </div>
         </div>
-        <button className="AddPetBtn" type="submit">Add Pet</button>
+        <button onClick="location.href='/'" className="AddPetBtn" type="submit">Add Pet</button>
       </form>
     </div>
   </div>

@@ -58,7 +58,7 @@ function Login(props) {
               <p>Your credentials are incorrect</p>
             </div> : null
           }
-          <button className="LoginBtn" type="submit">Login</button>
+          <button className="LoginBtn" type="submit">Submit</button>
           <Link className="SignupLink" to="/signup">Signup Instead</Link>
         </form>
       </div>

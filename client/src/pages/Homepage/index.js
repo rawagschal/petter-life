@@ -1,7 +1,8 @@
 import React from 'react';
 import Signup from '../Signup'
 import Auth from '../../utils/auth';
-import AddPetForm from '../AddPetForm';
+import PetList from '../../components/PetList';
+import './index.css';
 
 
 function Homepage() {
@@ -10,16 +11,14 @@ function Homepage() {
   function showSignup() {
     if (Auth.loggedIn()) {
       return (
-        <div>
-          <button>
+        <div className="AddPetSection">
+          <PetList />
+          <button className="HomepageLogoutBtn">
             <a href="/" onClick={() => Auth.logout()}>
-              Logout
+                Logout
             </a>
           </button>
-          <AddPetForm />
         </div>
-
-
       );
     } else {
       return (
