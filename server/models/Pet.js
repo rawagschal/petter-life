@@ -8,25 +8,22 @@ const petSchema = new Schema(
       trim: true
     },
     type: {
-      type: [String],
+      type: String,
       required: true,
       trim: true
     },
     age: {
       type: Number,
-      required: true,
       trim: true
     },
     gender: {
       type: String,
-      trim: true
-    },
-    breed: {
-      type: String,
-      trim: true
+      trim: true,
+      required: true
     },
     fixed: {
-      type: Boolean
+      type: String,
+      required: true
     },
     location: {
       type: Number,
@@ -34,14 +31,7 @@ const petSchema = new Schema(
     },
     description: {
       type: String,
-      required: true
-    },
-    available: {
-      type: Boolean
-    },
-    createdAt: {
-      type: Date, 
-      default: Date.now
+      required: true,
     }
   },
 );

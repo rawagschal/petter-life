@@ -34,7 +34,7 @@ function Login(props) {
         <div className="LoginTitle">Login</div>
         <form className="LoginCredentials" onSubmit={handleFormSubmit}>
           <div className="LoginUsername">
-            <label for="username">username</label>
+            <label htmlFor="username">username</label>
             <input 
               className="LoginUsernameInputField" 
               id="username" 
@@ -44,7 +44,7 @@ function Login(props) {
             />
           </div>
           <div className="LoginPassword">
-            <label for="password">password</label>
+            <label htmlFor="password">password</label>
             <input 
               className="LoginPasswordInputField" 
               id="pwd" 

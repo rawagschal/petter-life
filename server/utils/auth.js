@@ -1,9 +1,10 @@
 const jwt = require('jsonwebtoken');
 require("dotenv").config();
 
-const secret = process.env.SECRET;
-const expiration = process.env.EXPIRATION;
-
+// const secret = process.env.SECRET;
+// const expiration = process.env.EXPIRATION;
+const secret = "secret";
+const expiration = "10h"
 module.exports = {
   authMiddleware: function ({ req }) {
     // allows token to be sent via req.body, req.query, or headers
@@ -17,15 +18,13 @@ module.exports = {
         .trim();
     }
 
-    console.log("token", token)
-
-
     if (!token) {
       return req;
     }
 
     try {
-      const { data } = jwt.verify(token, secret, { maxAge: expiration });
+      console.log("trying to verify token");
+      const { data } = jwt.verify(token, secret);
       req.user = data;
     }
     catch {
@@ -37,6 +36,9 @@ module.exports = {
   signToken: function({ username, email, _id }) {
     const payload = { username, email, _id };
 
-    return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+    return jwt.sign(
+      { data: payload }, 
+      secret, {
+         expiresIn: expiration });
   }
 };

@@ -1,16 +1,41 @@
 import React from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Nav from '../../components/Nav';
+import Signup from '../Signup'
+import Auth from '../../utils/auth';
+import AddPetForm from '../AddPetForm';
+
 
 function Homepage() {
+
+  //conditionally render signup page
+  function showSignup() {
+    if (Auth.loggedIn()) {
+      return (
+        <div>
+          <button>
+            <a href="/" onClick={() => Auth.logout()}>
+              Logout
+            </a>
+          </button>
+          <AddPetForm />
+        </div>
+
+
+      );
+    } else {
+      return (
+        <div>
+          <Signup />
+        </div>
+      );
+    }
+  }
+
   return (
     <div>
-      <Header/>
-      <Nav/>
-      <Footer/>
+      {showSignup()}
     </div>
   );
+
 }
 
 export default Homepage;
