@@ -9,17 +9,41 @@ const PetList = ({ pets }) => {
     const { loading, data } = useQuery(QUERY_PETS);
     console.log('data', data);
 
-    const [formState, setFormState] = useState({ });
-    const [addLikedPet] = useMutation(ADD_LIKED_PET);
+    const [petState, setPetState] = useState({ liked: false });
+    // const [addLikedPet] = useMutation(ADD_LIKED_PET);
 
-    const likeHandler = async event => {
+    const buttonTextHandler = async event => {
         event.preventDefault();
         console.log("you clicked this button");
+        console.log(petState);
+        const petState = () => {
+            if (petState.liked = false) {
+                return true
+            } else {
+                return false;
+            }
+        }
 
-        const result = await addLikedPet({
-        });
+        const textFlip = (petState) => {
+            if (petState) {
+                return (
+                    <button>
+                        Unlike this Pet
+                    </button>
+                );
+            } else {
+                return (
+                    <button>Like this Pet</button>
+                )
+            }
+        }
 
-        console.log(result);
+        textFlip();
+
+        // const result = await addLikedPet({
+        // });
+
+        // console.log(result);
     }
 
 
@@ -42,7 +66,7 @@ const PetList = ({ pets }) => {
                             <li>Fixed: {pet.fixed}</li>
                             <li>{pet.description}</li>
                         </ul>
-                        <button className="LikePetBtn" onClick={likeHandler}>Like Pet</button>
+                        <button className="LikePetBtn" onClick={buttonTextHandler}>Like this Pet</button>
                     </div>
                 ))}
             </div>
