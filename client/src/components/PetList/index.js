@@ -13,7 +13,7 @@ const PetList = ({ pets }) => {
 
     const [petState, setPetState] = useState({ liked: false });
 
-    const buttonTextHandler = async event => {
+    const buttonClick = async event => {
         event.preventDefault();
 
         setPetState(!petState)
@@ -49,9 +49,9 @@ const PetList = ({ pets }) => {
                         </ul>
 
                         {!petState ? (
-                            <button className="LikePetBtn" onClick={buttonTextHandler}>Unlike this Pet</button>
+                            <button className="LikePetBtn" onClick={buttonClick}>Unlike this Pet</button>
                         ) : (
-                            <button className="LikePetBtn" onClick={buttonTextHandler}>Like this Pet</button>
+                            <button className="LikePetBtn" onClick={buttonClick}>Like this Pet</button>
                         )}
                     </div>
                 ))}
