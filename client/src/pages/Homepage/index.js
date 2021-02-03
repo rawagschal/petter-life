@@ -1,7 +1,7 @@
 import React from 'react';
 import Signup from '../Signup'
 import Auth from '../../utils/auth';
-import AddPetForm from '../AddPetForm';
+import PetList from '../../components/PetList';
 
 
 function Homepage() {
@@ -16,7 +16,7 @@ function Homepage() {
               Logout
             </a>
           </button>
-          <AddPetForm />
+          <PetList />
         </div>
 
 
