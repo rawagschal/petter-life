@@ -4,20 +4,20 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_USER } from "../../utils/queries";
 import './index.css';
 
-function UserInfo({ user }) {
+function UserInfo() {
 
-  const { loading, data } = useQuery(QUERY_USER);
-  console.log('data', data);
+  // const { loading, data } = useQuery(QUERY_USER);
+  // console.log('user data', data);
 
   return (
     <div className="UserInfoContainer">
-      {!loading && data.user(user => (
+      {/* {!loading && data.user(user => (
         <div className="UserListing" key={user._id}>
           <div className="UsernameDisplay">
               <div>{user.username}</div>
           </div>
         </div>
-      ))}
+      ))} */}
       <button className="UserInfoProfileBtn">Profile</button>
       <button className="UserInfoDonateBtn">Donate</button>
       <button className="UserInfoLogoutBtn"> Logout

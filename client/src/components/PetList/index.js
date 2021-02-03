@@ -7,7 +7,7 @@ import './index.css';
 const PetList = ({ pets }) => {
 
     const { loading, data } = useQuery(QUERY_PETS);
-    console.log('data', data);
+    console.log('pet data', data);
 
     // const [addLikedPet] = useMutation(ADD_LIKED_PET);
 
