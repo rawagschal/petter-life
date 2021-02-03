@@ -139,61 +139,62 @@ const resolvers = {
         }
       }
     },
-  },
 
-  //add a liked pet to a user's model when they like a pet
-  addLikedPet: async (parent, { _id }, context) => {
-    if (context.user) {
+    //add a liked pet to a user's model when they like a pet
+    addLikedPet: async (parent, { _id }, context) => {
+      if (context.user) {
 
-      const pet = await Pet.findById(_id);
+        const pet = await Pet.findById(_id);
 
-      const user = await User.findOneAndUpdate(
-        { _id: context.user._id },
-        { $push: { likedPets: pet } },
-        { new: true }
-      );
-      console.log("user liked a pet", user);
-      return pet;
-    } else {
-      return ("You must be logged in to like a pet!");
-    }
-  },
-
-  deleteLikedPet: async (_, args, context) => {
-    //check if user is logged in
-    console.log("context", context.user);
-    console.log(args);
-    if (context.user) {
-      try {
-        const deletedPet = await Pet.deleteOne({
-          _id: args.petId
-        });
-
-        // console.log("deleted pet", deletedPet);
-
-        const user = await User.findByIdAndUpdate(
+        const user = await User.findOneAndUpdate(
           { _id: context.user._id },
-          {
-            $pull: {
-              likedPets: {
-                _id: args.petId
-              }
-            }
-          },
+          { $push: { likedPets: pet } },
           { new: true }
-        ).lean()
+        );
+        console.log("user liked a pet", user);
+        return pet;
+      } else {
+        return ("You must be logged in to like a pet!");
+      }
+    },
 
-        console.log("user", user);
+    deleteLikedPet: async (parent, args, context) => {
+      //check if user is logged in
+      console.log("context", context.user);
+      console.log(args);
+      if (context.user) {
+        try {
+          const deletedPet = await Pet.deleteOne({
+            _id: args.petId
+          });
+
+          // console.log("deleted pet", deletedPet);
+
+          const user = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            {
+              $pull: {
+                likedPets: {
+                  _id: args.petId
+                }
+              }
+            },
+            { new: true }
+          ).lean()
+
+          console.log("user", user);
 
 
-        return user;
+          return user;
 
-        // ._doc to get raw data from object
-        // return { ...pet._doc };
-      } catch (e) {
-        console.log(e);
+          // ._doc to get raw data from object
+          // return { ...pet._doc };
+        } catch (e) {
+          console.log(e);
+        }
       }
     }
+
   }
 };
 
