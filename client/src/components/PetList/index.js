@@ -9,7 +9,8 @@ const PetList = ({ pets }) => {
     const { loading, data } = useQuery(QUERY_PETS);
     console.log('data', data);
 
-    // const [addLikedPet] = useMutation(ADD_LIKED_PET);
+    const [addLikedPet] = useMutation(ADD_LIKED_PET);
+    const [deleteLikedPet] = useMutation(DELETE_LIKED_PET);
 
     const [petState, setPetState] = useState({ liked: false });
 
@@ -17,13 +18,14 @@ const PetList = ({ pets }) => {
         event.preventDefault();
 
         setPetState(!petState)
-        console.log(petState); 
+        console.log(petState);
 
-        if (petState.liked) {
-            //push pet into user's likedPets array
-            //use ADD_LIKED_PETS mutation
+        if (!petState) {
+            console.log("pet has been pushed to user's likedPets")
+            addLikedPet();
         } else {
-            //PULL pet from user's likedPets array
+            console.log("pet has been PULLED to user's likedPets")
+            deleteLikedPet();
         }
     }
 
@@ -51,8 +53,8 @@ const PetList = ({ pets }) => {
                         {!petState ? (
                             <button className="LikePetBtn" onClick={buttonClick}>Unlike this Pet</button>
                         ) : (
-                            <button className="LikePetBtn" onClick={buttonClick}>Like this Pet</button>
-                        )}
+                                <button className="LikePetBtn" onClick={buttonClick}>Like this Pet</button>
+                            )}
                     </div>
                 ))}
             </div>

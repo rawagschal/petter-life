@@ -159,7 +159,6 @@ const resolvers = {
     }
   },
 
-
   deleteLikedPet: async (_, args, context) => {
     //check if user is logged in
     console.log("context", context.user);
@@ -196,7 +195,6 @@ const resolvers = {
       }
     }
   }
-
 };
 
 
