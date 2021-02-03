@@ -52,13 +52,13 @@ textarea {
   box-shadow: 0 0 10px rgba(0, 255, 234, 0.8);
 }
 
-input:hover, select:hover, textarea:hover, {
+input:hover, select:hover, textarea:hover {
   box-shadow: 0 0 10px rgba(0, 255, 234, 0.8);
 }
 
 .AddPetSection {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   background-image: url('../../../src/assets/cover-image/petterLife-bg-13\ 2.png');
