@@ -6,7 +6,7 @@ import Signup from './pages/Signup';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AddPetForm from './pages/AddPetForm';
-import Donate from './components/Donate';
+import Donate from './pages/Donate';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';

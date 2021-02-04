@@ -75,6 +75,24 @@
   width: 100%;
 }
 
+.CardholderName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 22.5%;
+  width: 100%;
+}
+
+.CardInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 22.5%;
+  width: 100%;
+}
+
 label {
   font-size: 130%;
   margin: 0% 0% 1% 0%;
@@ -96,7 +114,7 @@ input:hover {
   box-shadow: 0 0 10px rgba(0, 255, 234, 0.8);
 }
 
-/* .DonateBtn {
+#card-button {
   font-size: 130%;
   font-family: serif;
   background-color: #69D3C4;
@@ -105,9 +123,10 @@ input:hover {
   border-radius: 5px;
   height: 10%;
   width: 35%;
+  margin: .25rem;
 }
 
-.DonateBtn:hover {
+#card-button:hover {
   box-shadow: 0 0 10px rgba(0, 255, 234, 0.8);
-} */
+}
 
