@@ -84,14 +84,15 @@
   width: 100%;
 }
 
-.CardInfo {
+/* .CardInfo {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 22.5%;
   width: 100%;
-}
+  background-color: #69D3C4;
+} */
 
 label {
   font-size: 130%;

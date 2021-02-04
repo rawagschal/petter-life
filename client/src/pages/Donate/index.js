@@ -1,4 +1,4 @@
-import { loadStripe } from '@stripe/stripe-js';
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import React from 'react';
 // import { useMutation } from '@apollo/react-hooks';
 // import { DONATE } from "../../utils/mutations";
@@ -6,16 +6,28 @@ import './index.css';
 
 function Donate() {
     //form state stuff
+    
+    //handle change function
+
+    //for stripe card element
+    const stripe = useStripe();
+    const elements = useElements();
 
     //handle form submit async funciton
-
-    //hanle change function
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const {error, paymentMethod} = await stripe.createPaymentMethod({
+            type: 'card',
+            card: elements.getElement(CardElement),
+        });
+    };
 
     return(
+       
         <div className="DonateSection">
             <div className="DonateContainer">
                 <div className="DonateTitle">Make a Donation</div>
-                <form className="DonationForm">
+                <form className="DonationForm" onSubmit={handleSubmit}>  
                     <div className="DonationName">
                         <label htmlFor="name">Name: </label>
                         <input 
@@ -25,6 +37,7 @@ function Donate() {
                             // onChange={handleChange}
                         />
                     </div>
+                                        
                     <div className="DonationEmail">
                         <label htmlFor="email">Email: </label>
                         <input 
@@ -34,6 +47,7 @@ function Donate() {
                             // onChange={handleChange}
                         />
                     </div>
+
                     <div className="DonationAmount">
                         <label htmlFor="amount" for="amount">Amount: </label>
                         <input 
@@ -44,6 +58,7 @@ function Donate() {
                             // onChange={handleChange}
                         />
                     </div>
+
                     <div className="CardholderName">
                         <label htmlFor="cardholderName">Name on Card: </label>
                         <input 
@@ -54,16 +69,10 @@ function Donate() {
                             // onChange={handleChange}
                         />
                     </div>
+                    
                     <div className="CardInfo">
                         <label htmlFor="card-element">Credit or Debit Card: </label>
-                        <div id="card-element" name="card"></div>
-                        {/* <input 
-                            id="card-element"
-                            className="DonationAmountInputField"
-                            type="number" 
-                            name="amount"
-                            // onChange={handleChange}
-                        /> */}
+                        <CardElement />
                     </div>
                     <div className="CardErrors" id="card-errors"></div>
                     <button id="card-button" data-secret="{{intentSecret}}">
@@ -73,10 +82,10 @@ function Donate() {
             </div>
             <script src="https://js.stripe.com/v3/"></script>
         </div>
-        
+   
         
     )
-
+   
 }
 
 
