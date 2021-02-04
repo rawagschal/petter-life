@@ -1,20 +1,29 @@
 import React, { useState } from "react";
 import { useMutation } from '@apollo/react-hooks';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { LOGIN } from "../../utils/mutations"
 import Auth from "../../utils/auth";
 import './index.css';
+import { useStoreContext } from '../../utils/GlobalState'
 
 function Login(props) {
   const [formState, setFormState] = useState({ username: '', password: '' })
   const [login, { error }] = useMutation(LOGIN);
-
+  const { globalStore, dispatch } = useStoreContext()
+  const history = useHistory()
+  console.log(globalStore, dispatch);
   const handleFormSubmit = async event => {
     event.preventDefault();
     try {
       const mutationResponse = await login({ variables: { username: formState.username, password: formState.password } })
       const token = mutationResponse.data.login.token;
+      // console.log(mutationResponse.data.login);
+      dispatch({
+        type: "LOGIN",
+        payload: mutationResponse.data.login.user
+      })
       Auth.login(token);
+      history.push("/")
     } catch (e) {
       console.log(e)
     }
