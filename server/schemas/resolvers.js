@@ -2,6 +2,8 @@ const { AuthenticationError } = require("apollo-server-express");
 const { parseType } = require("graphql");
 const { User, Pet } = require("../models");
 const { signToken } = require("../utils/auth");
+//require server side strip w/ test key
+const stripe = require('stripe')(process.env.STRIPE_KEY);
 
 const resolvers = {
   Query: {
@@ -164,6 +166,43 @@ const resolvers = {
         }
       }
     },
+  },
+
+  // method for donation mutation
+  donation: async(args) => {
+    // create a new donation type?
+    const newDonation = new Donation ({ donation: args.donation });
+    console.log("new donation:", newDonation);
+    const { donation } = await newDonation.populate('donation').execPopulate();
+    
+    const paymentIntent = await stripe.paymentIntents.create({
+            amount: amount * 100,
+            currency: 'usd',
+            receipt_email: email,
+    });
+    return donation;
+
+    // generate donation paymentIntent id
+
+    // validate entries from donation form
+    // const name = req.body.name;
+    // const email = req.body.email;
+    // const amount = req.body.amount;
+    // if (true) {
+    //   try {
+    //     // create PI:
+    //     const paymentIntent = await stripe.paymentIntents.create({
+    //       amount: amount * 100,
+    //       currency: 'usd',
+    //       receipt_email: email,
+    //     });
+    //     res.render('card', {name: name, amount: amount, intentSecret: paymentIntent.client_secret });
+    //   } catch(err) {
+    //     console.log('Error!', err.message);
+    //   }
+    // } else {
+    //   res.render('donate',{ title: 'Donate', errors: errors});
+    // }
   },
 
 };

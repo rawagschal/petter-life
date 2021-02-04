@@ -7,11 +7,16 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AddPetForm from "./pages/AddPetForm";
 import SavedPets from "./pages/SavedPets";
+import Donate from './pages/Donate';
+import DonationSuccess from './pages/DonationSuccess';
+import About from "./pages/About";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { Store } from "./utils/GlobalState";
 import Auth from "../src/utils/auth"
+import {loadStripe} from '@stripe/stripe-js';
+import {Elements} from '@stripe/react-stripe-js';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -25,7 +30,11 @@ const client = new ApolloClient({
   uri: "/graphql",
 });
 
+const stripePromise = loadStripe('pk_test_51HqssXBJygQBRfdhbWFHhIGi1TcxsDvNEweKre7XHp9EC8R6uHbZiSUTdxO1U8pQXgX2L61ioxXAqjibyLJTl6ba00Qh8xGCj0');
+
+
 function App() {
+
 
   return (
     <Store>
@@ -38,7 +47,12 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/addPetForm" component={AddPetForm} />
+              <Elements stripe={stripePromise}>
+                <Route exact path="/donate" component={Donate} />
+              </Elements>
+              <Route exact path="/donationSuccess" component={DonationSuccess} />
               <Route exact path="/savedPets" component={SavedPets} />
+              <Route exact path="/about" component={About} />
             </Switch>
             <Footer />
           </div>
