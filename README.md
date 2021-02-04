@@ -28,7 +28,7 @@ Preview of app:
 
 ![Preview of App](./client/public/preview.png)
 
-[Link to Deployed App](https://peaceful-basin-03204.herokuapp.com/)
+[Link to Deployed App](https://a-petter-life.herokuapp.com/)
 
 ## Contributing
 This is a public repository and we welcome all contributions.  If you have any ideas or upgrades, we are all ears! Let's save these pets.
