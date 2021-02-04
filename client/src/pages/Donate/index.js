@@ -75,7 +75,7 @@ function Donate() {
                     
                     <div className="CardInfo">
                         <label htmlFor="card-element">Credit or Debit Card: </label>
-                        <CardElement ref={this.cardEl} />
+                        <CardElement />
                     </div>
                     <div className="CardErrors" id="card-errors"></div>
                     <button id="card-button" data-secret="{{intentSecret}}" type="submit">
