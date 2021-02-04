@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import AddPetForm from "./pages/AddPetForm";
 import SavedPets from "./pages/SavedPets";
 import Donate from './pages/Donate';
+import DonationSuccess from './pages/DonationSuccess';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
@@ -40,6 +41,7 @@ function App() {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/addPetForm" component={AddPetForm} />
               <Route exact path="/donate" component={Donate} />
+              <Route exact path="/donationSuccess" component={DonationSuccess} />
               <Route exact path="/savedPets" component={SavedPets} />
             </Switch>
             <Footer />
