@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_OWNED_PET } from '../../utils/mutations';
 import './index.css';
@@ -114,7 +115,11 @@ return (
             </div>
           </div>
         </div>
-        <button onClick="location.href='/'" className="AddPetBtn" type="submit">Add Pet</button>
+
+        <div className="AddPetBtnContainer">
+          <button onClick="location.href='/'" className="AddPetBtn" type="submit">Add Pet</button>
+          <Link to="/" className="AddPetBtn">Go Back</Link>
+        </div> 
       </form>
     </div>
   </div>
