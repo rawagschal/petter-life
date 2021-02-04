@@ -5,11 +5,15 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    // me: async (parent, args, context) => {
-    //   if (context.user) {
-    //     const userData = await User.
-    //   }
-    // },
+    me: async (parent, args, context) => {
+      console.log(context.user);
+      if (context.user) {
+        
+        return context.user
+        // const userData = await User.
+      }
+      
+    },
 
     user: async (parent, args, context) => {
       if (context.user) {
