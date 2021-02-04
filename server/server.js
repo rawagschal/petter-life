@@ -15,6 +15,8 @@ const server = new ApolloServer({
   context: authMiddleware
 });
 
+const {cloudinary} = require('./utils/cloudinary');
+
 // integrate our Apollo server with the Express application as middleware
 server.applyMiddleware({ app });
 
@@ -29,6 +31,31 @@ if (process.env.NODE_ENV === 'production') {
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
+app.get('/api/images', async (req, res) => {
+  const {resources} = await cloudinary.search
+  .expression('folder:a-petter-life')
+  .sort_by('public_id', 'desc')
+  .max_results(30)
+  .execute();
+  const publicIds = resources.map( file => file.public_id);
+  res.send(publicIds);
+})
+
+app.post('/api/addPetPhoto', async (req, res) => {
+  try {
+    const fileStr = req.body.data;
+    console.log(fileStr)
+    const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
+      upload_preset: 'dev_setups'
+    })
+    console.log(uploadResponse);
+    res.json({msg: "Image Uploaded Succesfully!"})
+  } catch(error) {
+    console.error(error)
+    res.status(500).json({err: 'Something went wrong'})
+  }
 });
 
 
