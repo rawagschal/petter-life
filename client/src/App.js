@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import "./App.css";
 import Homepage from "./pages/Homepage";
 import Login from "./pages/Login";
@@ -13,7 +12,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { Store } from "./utils/GlobalState";
-import Auth from "../src/utils/auth"
 import {loadStripe} from '@stripe/stripe-js';
 import {Elements} from '@stripe/react-stripe-js';
 
@@ -53,6 +51,7 @@ function App() {
               <Route exact path="/savedPets" component={SavedPets} />
             </Switch>
             <Footer />
+            <script src="https://js.stripe.com/v3/"></script>
           </div>
         </Router>
       </ApolloProvider>

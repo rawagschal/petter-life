@@ -16,12 +16,15 @@ function Donate() {
     //handle form submit async funciton
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const {error, paymentMethod} = await stripe.createPaymentMethod({
+        const {paymentMethod} = await stripe.createPaymentMethod({
             type: 'card',
             card: elements.getElement(CardElement),
         });
+        console.log("paymentmethod", paymentMethod);
+        return(paymentMethod);
+    
     };
-
+    
     return(
        
         <div className="DonateSection">
@@ -72,10 +75,10 @@ function Donate() {
                     
                     <div className="CardInfo">
                         <label htmlFor="card-element">Credit or Debit Card: </label>
-                        <CardElement />
+                        <CardElement ref={this.cardEl} />
                     </div>
                     <div className="CardErrors" id="card-errors"></div>
-                    <button id="card-button" data-secret="{{intentSecret}}">
+                    <button id="card-button" data-secret="{{intentSecret}}" type="submit">
                         Donate
                     </button>
                 </form> 
