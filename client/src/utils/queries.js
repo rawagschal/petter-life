@@ -6,6 +6,7 @@ export const QUERY_ME = gql`
       username
       email
       likedPets{
+        _id
         name
         type
         age
@@ -13,6 +14,7 @@ export const QUERY_ME = gql`
         fixed
       }
        ownedPets{
+         _id
         name
         type
         age
@@ -38,6 +40,7 @@ export const QUERY_USER = gql`
 export const QUERY_PETS = gql`
   {
     pets {
+      _id
       name
       type
       age

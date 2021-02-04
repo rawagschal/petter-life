@@ -40,8 +40,8 @@ export const ADD_OWNED_PET = gql`
 `;
 
 export const ADD_LIKED_PET = gql`
-  mutation addLikedPet($name: String!, $type: String!, $age: Int!, $fixed: String!, $location: Int!, $description: String!, $gender: String!) {
-    addLikedPet(name: $name, type: $type, age: $age, fixed: $fixed, location: $location, description: $description, gender: $gender) {
+  mutation addLikedPet($_id: ID!) {
+    addLikedPet(_id: $_id) {
       name
       type
       description

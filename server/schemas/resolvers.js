@@ -9,9 +9,10 @@ const resolvers = {
       console.log(context.user);
       if (context.user) {
         
-        return context.user
-        // const userData = await User.
+        const user = await User.findById(context.user._id);
+        return user;
       }
+      throw new AuthenticationError("Not logged in");
       
     },
 
