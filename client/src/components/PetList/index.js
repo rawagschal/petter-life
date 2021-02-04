@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { ADD_LIKED_PET } from '../../utils/mutations';
 import { QUERY_PETS } from "../../utils/queries";
@@ -62,37 +62,40 @@ const PetList = ({ pets }) => {
 
 
     return (
-        <div className="AvailablePetsContainer">
-            <div className="AvailablePetsTitle">Pets available for adoption:</div>
-            <div className="PetListingsContainer">
-                {!loading && data.pets.map(pet => (
-                    <div className="PetListing" key={pet._id}>
-                        <ul className="PetInfo">
-                            <li>{pet.name} - ({pet.type})</li>
-                            <li>Age: {pet.age} - {pet.gender}</li>
-                            <li>Location: {pet.location}</li>
-                            <li>Fixed: {pet.fixed}</li>
-                            <li>{pet.description}</li>
-                        </ul>
+        <div className="PetListingsContainer">
+            <div className="AvailablePetsContainer">
+                <div className="AvailablePetsTitle">Pets available for adoption:</div>
+                <div className="PetListings">
+                    {!loading && data.pets.map(pet => (
+                        <div className="SinglePetListing" key={pet._id}>
+                            <ul className="PetInfo">
+                                <li>{pet.name} - ({pet.type})</li>
+                                <li>Age: {pet.age} - {pet.gender}</li>
+                                <li>Location: {pet.location}</li>
+                                <li>Fixed: {pet.fixed}</li>
+                                <li>{pet.description}</li>
+                            </ul>
 
-                        <button
-                            disabled={savedPetIds?.some((savedPetId) => savedPetId === pet.petId)}
-                            className='LikePetBtn'
-                            onClick={() => handleLikedPet(pet.petId)}>
-                            {savedPetIds?.some((savedPetId) => savedPetId === pet.petId)
-                                ? 'This pet has already been saved!'
-                                : 'Save this pet!'}
-                        </button>
+                            <button
+                                disabled={savedPetIds?.some((savedPetId) => savedPetId === pet.petId)}
+                                className='LikePetBtn'
+                                onClick={() => handleLikedPet(pet.petId)}>
+                                {savedPetIds?.some((savedPetId) => savedPetId === pet.petId)
+                                    ? 'This pet has already been saved!'
+                                    : 'Save this pet!'}
+                            </button>
 
-                        {/* 
-                        {!petState ? (
-                            <button className="LikePetBtn" onClick={buttonTextHandler}>Save Pet</button>
-                        ) : (
-                                <button className="LikePetBtn" onClick={buttonTextHandler}>Unsave Pet</button>
-                            )} */}
-                    </div>
-                ))}
+                            {/* 
+                            {!petState ? (
+                                <button className="LikePetBtn" onClick={buttonTextHandler}>Save Pet</button>
+                            ) : (
+                                    <button className="LikePetBtn" onClick={buttonTextHandler}>Unsave Pet</button>
+                                )} */}
+                        </div>
+                    ))}
+                </div>
             </div>
+            <Link to="/addPetForm" className="CreateListingBtn">Create Listing</Link>
         </div>
     );
 }
