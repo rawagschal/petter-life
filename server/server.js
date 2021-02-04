@@ -43,12 +43,12 @@ app.get('/api/images', async (req, res) => {
   res.send(publicIds);
 })
 
-app.post('/api/addPetPhoto', async (req, res) => {
+app.post('https://api.cloudinary.com/v1_1/dsz8f4wu8/api/addPetPhoto', async (req, res) => {
   try {
     const fileStr = req.body.data;
     console.log(fileStr)
     const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
-      upload_preset: 'dev_setups'
+      upload_preset: 'a-petter-life'
     })
     console.log(uploadResponse);
     res.json({msg: "Image Uploaded Succesfully!"})

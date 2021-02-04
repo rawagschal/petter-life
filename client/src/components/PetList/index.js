@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import {Image}
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_PETS } from "../../utils/queries";
 import './index.css';
@@ -49,15 +48,6 @@ const PetList = ({ pets }) => {
     return (
         <div className="AvailablePetsContainer">
             <div className="AvailablePetsTitle">Pets available for adoption:</div>
-            {imageIds && imageIds.map((imageId, index) => 
-                <Image
-                key={index}
-                cloudName="dsz8f4wu8"
-                publicId={imageId}
-                width="300"
-                crop="scale"
-                />
-            )}
             <div className="PetListingsContainer">
                 {!loading && data.pets.map(pet => (
                     <div className="PetListing" key={pet._id}>

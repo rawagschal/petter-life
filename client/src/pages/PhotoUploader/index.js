@@ -29,7 +29,7 @@ function PhotoUploader() {
   const uploadImage = async (base64EncodedImage) => {
       console.log(base64EncodedImage);
       try {
-        await fetch('/api/addPetPhoto', {
+        await fetch('https://api.cloudinary.com/v1_1/dsz8f4wu8/api/addPetPhoto', {
         method: 'POST',
         body: JSON.stringify({data: base64EncodedImage}),
         headers: {'Content-type': 'application/json'}
