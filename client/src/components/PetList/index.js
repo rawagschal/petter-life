@@ -69,11 +69,11 @@ const PetList = ({ pets }) => {
                     {!loading && data.pets.map(pet => (
                         <div className="SinglePetListing" key={pet._id}>
                             <ul className="PetInfo">
-                                <li>{pet.name} - ({pet.type})</li>
-                                <li>Age: {pet.age} - {pet.gender}</li>
-                                <li>Location: {pet.location}</li>
-                                <li>Fixed: {pet.fixed}</li>
-                                <li>{pet.description}</li>
+                                <li className="PetInfoSpecs">{pet.name} - ({pet.type})</li>
+                                <li className="PetInfoSpecs">Age: {pet.age} - {pet.gender}</li>
+                                <li className="PetInfoSpecs">Location: {pet.location}</li>
+                                <li className="PetInfoSpecs">Fixed: {pet.fixed}</li>
+                                <li className="PetInfoSpecs">{pet.description}</li>
                             </ul>
 
                             <button

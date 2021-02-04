@@ -15,7 +15,7 @@
   font-family: serif;
   text-align: center;
   color: #69D3C4;
-  font-size: 200%;
+  font-size: 1.5em;
   width: 100%;
   padding: 1%;
 }
@@ -25,7 +25,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 130%;
+  font-size: 1.5em;
   font-family: serif;
   background-color: #69D3C4;
   color: #FFFFFF;
@@ -33,6 +33,7 @@
   border-radius: 5px;
   height: 10%;
   width: 75%;
+  text-align: center;
 }
 
 .UserInfoDonateBtn{
@@ -40,7 +41,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 130%;
+  font-size: 1.5em;
   font-family: serif;
   background-color: #69D3C4;
   color: #FFFFFF;
@@ -48,6 +49,23 @@
   border-radius: 5px;
   height: 10%;
   width: 75%;
+  text-align: center;
+}
+
+.UserInfoAboutBtn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-family: serif;
+  background-color: #69D3C4;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  height: 10%;
+  width: 75%;
+  text-align: center;
 }
 
 .UserInfoLogoutBtn{
@@ -55,7 +73,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 130%;
+  font-size: 1.5em;
   font-family: serif;
   background-color: #69D3C4;
   color: #FFFFFF;
@@ -63,6 +81,7 @@
   border-radius: 5px;
   height: 10%;
   width: 75%;
+  text-align: center;
 }
 
 .UserInfoLogoutBtn:hover, .UserInfoDonateBtn:hover, .UserInfoSavedPetsBtn:hover {

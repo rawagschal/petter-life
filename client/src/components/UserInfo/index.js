@@ -22,8 +22,9 @@ function UserInfo() {
         </div>
       ))} */}
       <div className="UserInfoTitle">Hello, {globalStore.user.username}!</div>
-      <Link to="/savedPets"className="UserInfoSavedPetsBtn">Your Saved Pets</Link>
+      <Link to="/savedPets"className="UserInfoSavedPetsBtn">Saved Pets</Link>
       <Link to="/donate" className="UserInfoDonateBtn">Donate</Link>
+      <Link to="/about" className="UserInfoAboutBtn">About</Link>
       <Link to="/" className="UserInfoLogoutBtn" onClick={() => Auth.logout()}>Logout</Link>
     </div>
   );

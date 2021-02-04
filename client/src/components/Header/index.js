@@ -3,6 +3,8 @@ import './index.css';
 import { QUERY_ME } from "../../utils/queries"
 import { useQuery } from "@apollo/react-hooks"
 import { useStoreContext } from "../../utils/GlobalState"
+import { Link } from 'react-router-dom';
+
 function Header() {
   const { loading, error, data } = useQuery(QUERY_ME)
   const { globalStore, dispatch } = useStoreContext()
@@ -27,8 +29,7 @@ function Header() {
   return (
     <div className="HeaderContainer">
       {loading ? <p></p>: <p></p>}
-      <div className="HeaderLogo">
-      </div>
+      <Link to="/" className="HeaderLogo"/>
     </div>
   );
 }

@@ -1,17 +1,19 @@
 li {
   list-style: none;
-  text-align: left;
+  text-align: center;
 }
 
 .LikePetBtn {
-  font-size: 130%;
+  font-size: 1.5em;
   font-family: serif;
   background-color: #69D3C4;
   color: #FFFFFF;
   border: none;
   border-radius: 5px;
   height: 10%;
-  width: 50%;
+  width: 75%;
+  margin: .5em 0em;
+  padding: .5em 0em;
 }
 
 .LikePetBtn:hover {
@@ -43,9 +45,9 @@ li {
   font-family: serif;
   text-align: center;
   color: #69D3C4;
-  font-size: 150%;
+  font-size: 1.5em;
   width: 100%;
-  padding: 1%;
+  padding: .25em;
 }
 
 .PetListings {
@@ -59,9 +61,11 @@ li {
   height: 85%;
   width: 95%;
   overflow: scroll;
+  text-align: center;
 }
 
 .SinglePetListing{
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -69,8 +73,8 @@ li {
   overflow: scroll;
   border: solid 5px rgba(0, 255, 234, 0.4);
   border-radius: 25px;
-  padding: 2.5%;
-  margin: 2.5%;
+  padding: .5em;
+  margin: .5em;
   width: 80%;
 }
 
@@ -81,22 +85,28 @@ li {
   align-items: center;
   text-align: left;
   overflow: scroll;
-  margin: 2.5%;
+  margin: .25em;
+  font-size: 1.25em;
+}
+
+.PetInfoSpecs {
+  text-align: center;
 }
 
 .CreateListingBtn {
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 130%;
+  font-size: 1.5em;
   font-family: serif;
   background-color: #69D3C4;
   color: #FFFFFF;
   border: none;
   border-radius: 5px;
-  margin: 1.5%;
-  width: 25%;
+  margin: .5em;
+  width: 50%;
 }
 
 .CreateListingBtn:hover {
