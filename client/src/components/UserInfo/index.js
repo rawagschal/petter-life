@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_USER } from "../../utils/queries";
 import './index.css';
 import { useStoreContext } from "../../utils/GlobalState";
+import {Link} from "react-router-dom";
 
 function UserInfo() {
 
@@ -20,10 +21,10 @@ function UserInfo() {
           </div>
         </div>
       ))} */}
-      <h3>{globalStore.user.username}</h3>
-      <button className="UserInfoProfileBtn">Profile</button>
-      <button className="UserInfoDonateBtn">Donate</button>
-      <button className="UserInfoLogoutBtn" onClick={() => Auth.logout()}>Logout</button>
+      <div className="UserInfoTitle">Hello, {globalStore.user.username}!</div>
+      <Link className="UserInfoSavedPetsBtn">Saved Pets</Link>
+      <Link to="/donate" className="UserInfoDonateBtn">Donate</Link>
+      <Link to="/" className="UserInfoLogoutBtn" onClick={() => Auth.logout()}>Logout</Link>
     </div>
   );
 }

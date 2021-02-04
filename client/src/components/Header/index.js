@@ -26,7 +26,7 @@ function Header() {
   console.log(data);
   return (
     <div className="HeaderContainer">
-      {loading ? <p>Checking user credentials.</p>: <p>Loaded</p>}
+      {loading ? <p></p>: <p></p>}
       <div className="HeaderLogo">
       </div>
     </div>

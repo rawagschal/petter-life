@@ -77,4 +77,23 @@ li {
   margin: 2.5%;
 }
 
+.AddYourPetBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 130%;
+  font-family: serif;
+  background-color: #69D3C4;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  height: 10%;
+  width: 50%;
+}
+
+.AddYourPetBtn:hover {
+  box-shadow: 0 0 10px rgba(0, 255, 234, 0.8);
+}
+
 
