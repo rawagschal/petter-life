@@ -118,7 +118,7 @@ return (
 
         <div className="AddPetBtnContainer">
           <button onClick="location.href='/'" className="AddPetBtn" type="submit">Add Pet</button>
-          <Link to="/" className="AddPetBtn">Go Back</Link>
+          <Link to="/" className="AddPetBtn">Home</Link>
         </div> 
       </form>
     </div>
