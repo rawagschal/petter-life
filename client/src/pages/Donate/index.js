@@ -49,20 +49,21 @@ function Donate() {
                         <input 
                             className="CardholderNameInputField"
                             type="text" 
-                            name="cardholder-name"
+                            name="cardholder"
                             // value="cardholder-name"
                             // onChange={handleChange}
                         />
                     </div>
                     <div className="CardInfo">
                         <label htmlFor="card-element">Credit or Debit Card: </label>
-                        <input 
+                        <div id="card-element" name="card"></div>
+                        {/* <input 
                             id="card-element"
                             className="DonationAmountInputField"
                             type="number" 
                             name="amount"
                             // onChange={handleChange}
-                        />
+                        /> */}
                     </div>
                     <div className="CardErrors" id="card-errors"></div>
                     <button id="card-button" data-secret="{{intentSecret}}">
@@ -70,8 +71,12 @@ function Donate() {
                     </button>
                 </form> 
             </div>
+            <script src="https://js.stripe.com/v3/"></script>
         </div>
+        
+        
     )
+
 }
 
 

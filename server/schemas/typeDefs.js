@@ -28,6 +28,11 @@ const typeDefs = gql`
     token: ID
     user: User
   }
+
+  # Donation Type
+  type Donation {
+    paymentIntent: ID
+  }
   
   type Query {
     me: User
@@ -36,6 +41,7 @@ const typeDefs = gql`
     myLikedPets: [Pet]
     myOwnedPets: [Pet]
     pets: [Pet]
+    donations: [Donation]
   }
 
   type Mutation {
@@ -45,6 +51,8 @@ const typeDefs = gql`
     addOwnedPet(name: String!, type: String!, age: Int!, gender: String!, fixed: String!, location: Int!, description: String!): Pet
     addLikedPet(_id: ID!) : Pet    
     deleteOwnedPet(petId: ID!): User
+    # mutation for payment intent ID of donation
+    donation(paymentIntent: ID!): Donation
   }
 `;
 

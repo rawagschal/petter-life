@@ -52,3 +52,6 @@ export const ADD_LIKED_PET = gql`
     }
   }
 `;
+
+// export const DONATE = gql`
+// ``
