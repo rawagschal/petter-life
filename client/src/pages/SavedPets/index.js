@@ -22,6 +22,8 @@ function SavedPets() {
                                     <li>Location: {pet.location}</li>
                                     <li>Fixed: {pet.fixed}</li>
                                     <li>{pet.description}</li>
+                                    <li>Interested in adopting {pet.name}? <br/> 
+                                    Contact: {pet.petemail}</li>
                                 </ul>
                             </div>
                         ))}
