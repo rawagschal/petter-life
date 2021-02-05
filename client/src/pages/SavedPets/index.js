@@ -1,27 +1,35 @@
-
 import React from 'react';
 import './index.css';
 import { useStoreContext } from "../../utils/GlobalState"
+import  globalStore  from "../../utils/GlobalState"
+import { Link } from 'react-router-dom';
+
 function SavedPets() {
+
     const { globalStore, dispatch } = useStoreContext();
+
     return (
-        <div className="AddPetSection">
+        <div className="SavedPetsSection">
             <div className="SavedPetContainer">
                 <div className="SavedPetTitle">Your Saved Pets</div>
-                { globalStore.user === null? <p></p>:
-                globalStore.user.likedPets.map(function(pet) {
-                    return(
-                        <h3>{pet.name}</h3>
-                        // <}<h2>{pet.type}</h2>
-                        // <h3>{pet.age}</h3>,
-                        // <h3>{pet.gender}</h3>,
-                        // <h3>{pet.fixed}</h3>,
-                        // <h3>{pet.location}</h3>,
-                        // <h3>{pet.description/h3>
-                    )
-                }) }
+                    <div className="SavedPets">
+                        { globalStore.user === null? <p>Loading</p>:
+                        globalStore.user.likedPets.map(pet => (
+                            <div className="SinglePetSaved" key={pet._id}>
+                                <ul className="PetInfo">
+                                    <li>{pet.name} - ({pet.type})</li>
+                                    <li>Age: {pet.age} - {pet.gender}</li>
+                                    <li>Location: {pet.location}</li>
+                                    <li>Fixed: {pet.fixed}</li>
+                                    <li>{pet.description}</li>
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+                    <Link to="/" className="CreateListingBtn">Home</Link>
             </div>
         </div>
     )
 }
+
 export default SavedPets;

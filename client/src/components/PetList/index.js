@@ -58,7 +58,7 @@ const PetList = ({ pets }) => {
                 <div className="AvailablePetsTitle">Pets available for adoption:</div>
                 <div className="PetListings">
                     {!loading && data.pets.map(pet => (
-                        <div className="SinglePetListing" key={pet._id}>
+                        <div className="SinglePetListings" key={pet._id}>
                             <ul className="PetInfo">
                                 <li>{pet.name} - ({pet.type})</li>
                                 <li>Age: {pet.age} - {pet.gender}</li>
