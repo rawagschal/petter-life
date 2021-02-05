@@ -35,6 +35,7 @@ function reducer(state, action) {
       break;
   }
 }
+
 function Store(props) {
   const [globalStore, dispatch] = useReducer(reducer, initialState);
   return (

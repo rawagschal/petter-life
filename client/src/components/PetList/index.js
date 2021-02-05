@@ -29,38 +29,29 @@ const PetList = ({ pets }) => {
 
 
     if (!data) {
-        return <p>No pets available for adoption at this current time.
-        Please add one or refer any acquantances looking to rehome their pet.
-        </p>
+        return <p></p>
     }
 
     // create function to handle saving a book to our database
     const handleLikedPet = async (petId) => {
-
+        console.log(petId);
         // find the book in `searchedBooks` state by the matching id
-        const petToSave = data.pets.find((pet) => pet.petId === petId);
-        console.log('pettosave', petToSave);
+        // const petToSave = data.pets.find((pet) => pet._id === petId);
+        // console.log('pettosave', petToSave);
         try {
             const { data } = await addLikedPet({
                 variables: {
-                    name: petToSave.name,
-                    type: petToSave.type,
-                    age: petToSave.age,
-                    gender: petToSave.gender,
-                    location: petToSave.location,
-                    fixed: petToSave.fixed
+                  _id: petId
                 },
             });
             console.log('data44', data);
-            console.log('savedPetIds', savedPetIds);
-            setSavedPetIds([...savedPetIds, petToSave.petId]);
+            // console.log('savedPetIds', savedPetIds);
+            // setSavedPetIds([...savedPetIds, petToSave._id]);
         }
         catch (error) {
             console.error(error);
         }
     };
-
-
     return (
         <div className="PetListingsContainer">
             <div className="AvailablePetsContainer">
@@ -69,23 +60,22 @@ const PetList = ({ pets }) => {
                     {!loading && data.pets.map(pet => (
                         <div className="SinglePetListing" key={pet._id}>
                             <ul className="PetInfo">
-                                <li className="PetInfoSpecs">{pet.name} - ({pet.type})</li>
-                                <li className="PetInfoSpecs">Age: {pet.age} - {pet.gender}</li>
-                                <li className="PetInfoSpecs">Location: {pet.location}</li>
-                                <li className="PetInfoSpecs">Fixed: {pet.fixed}</li>
-                                <li className="PetInfoSpecs">{pet.description}</li>
+                                <li>{pet.name} - ({pet.type})</li>
+                                <li>Age: {pet.age} - {pet.gender}</li>
+                                <li>Location: {pet.location}</li>
+                                <li>Fixed: {pet.fixed}</li>
+                                <li>{pet.description}</li>
                             </ul>
-
                             <button
-                                disabled={savedPetIds?.some((savedPetId) => savedPetId === pet.petId)}
+                                // disabled={false}
                                 className='LikePetBtn'
-                                onClick={() => handleLikedPet(pet.petId)}>
-                                {savedPetIds?.some((savedPetId) => savedPetId === pet.petId)
+                                onClick={() => handleLikedPet(pet._id)}>
+                                    Save Pet
+                                {/* {savedPetIds?.some((savedPetId) => savedPetId === pet._id)
                                     ? 'This pet has already been saved!'
-                                    : 'Save this pet!'}
+                                    : 'Save this pet!'} */}
                             </button>
-
-                            {/* 
+                            {/*
                             {!petState ? (
                                 <button className="LikePetBtn" onClick={buttonTextHandler}>Save Pet</button>
                             ) : (

@@ -9,8 +9,8 @@ import { useStoreContext } from '../../utils/GlobalState'
 function Login(props) {
   const [formState, setFormState] = useState({ username: '', password: '' })
   const [login, { error }] = useMutation(LOGIN);
-  const { globalStore, dispatch } = useStoreContext()
-  const history = useHistory()
+  const { globalStore, dispatch } = useStoreContext();
+  const history = useHistory();
   console.log(globalStore, dispatch);
   const handleFormSubmit = async event => {
     event.preventDefault();

@@ -21,7 +21,12 @@ function UserInfo() {
           </div>
         </div>
       ))} */}
-      <div className="UserInfoTitle">Hello, {globalStore.user.username}!</div>
+
+      {globalStore.user === null ? (
+        <p></p>
+      ): (
+        <div className="UserInfoTitle">Hello, {globalStore.user.username}!</div>
+      )}
       <Link to="/savedPets"className="UserInfoSavedPetsBtn">Saved Pets</Link>
       <Link to="/donate" className="UserInfoDonateBtn">Donate</Link>
       <Link to="/about" className="UserInfoAboutBtn">About</Link>
