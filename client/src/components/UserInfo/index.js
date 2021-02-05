@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_USER } from "../../utils/queries";
 import './index.css';
 import { useStoreContext } from "../../utils/GlobalState";
-import {Link} from "react-router-dom";
 
 function UserInfo() {
 

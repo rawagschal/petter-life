@@ -52,3 +52,15 @@ export const ADD_LIKED_PET = gql`
     }
   }
 `;
+
+export const ADD_DONATION= gql`
+  mutation addDonation($donorName: String!, $donorEmail: String!, $donationAmount: Int!, $cardName: String!, $paymentMethod: ID!) {
+    addDonation(donorName: $donorName, donorEmail: $donorEmail, donationAmount: $donationAmount, cardName: $cardName, paymentMethod: $paymentMethod) {
+      donorName
+      donorEmail
+      donationAmount
+      cardName
+      paymentMethod
+    }
+  }
+`;
