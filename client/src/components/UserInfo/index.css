@@ -1,0 +1,89 @@
+.UserInfoContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #FFFFFF;
+  width: 30%;
+  height: 85%;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  border: solid 5px rgba(0, 255, 234, 0.4);
+}
+
+.UserInfoTitle {
+  font-family: serif;
+  text-align: center;
+  color: #69D3C4;
+  font-size: 1.5em;
+  width: 100%;
+  padding: 1%;
+}
+
+.UserInfoSavedPetsBtn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-family: serif;
+  background-color: #69D3C4;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  height: 10%;
+  width: 75%;
+  text-align: center;
+}
+
+.UserInfoDonateBtn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-family: serif;
+  background-color: #69D3C4;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  height: 10%;
+  width: 75%;
+  text-align: center;
+}
+
+.UserInfoAboutBtn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-family: serif;
+  background-color: #69D3C4;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  height: 10%;
+  width: 75%;
+  text-align: center;
+}
+
+.UserInfoLogoutBtn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-family: serif;
+  background-color: #69D3C4;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  height: 10%;
+  width: 75%;
+  text-align: center;
+}
+
+.UserInfoLogoutBtn:hover, .UserInfoDonateBtn:hover, .UserInfoSavedPetsBtn:hover {
+  box-shadow: 0 0 10px rgba(0, 255, 234, 0.8);
+}

@@ -1,70 +1,41 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Petter Life
 
-## Available Scripts
+## Description
+Many pet owners have events come up in their lives that force them to make big changes - a job loss requiring them to relocate or downsize, an allergy development, having kids, or simply longer hours at work. Any of these can make having a pet seem irresonsible or unmanagable.  Rather than leave their pet home alone all day, or force a Great Dane to live in a tiny apartment, pet owners would rather give up their beloved pet to someone who can take better care of their animal. 
 
-In the project directory, you can run:
+This is where "Petter Life" comes into play!  With "Petter Life," pet owners looking to give their pet up for adoption have a place to connect with people looking for a pet.  They can upload info about their pet, and get connected with interested people.  
 
-### `npm start`
+Yay, a "petter" life for everyone!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This was a group effort by Chris Meissner, Rachel Wagschal, Kim Mulligan, and Suzanna Akins. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
-### `npm test`
+## Installation
+To install necessary dependencies, run the following command:
+npm i
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
+Download the app to get using!  
 
-### `npm run build`
+Preview of app:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Preview of App](./client/public/preview.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Link to Deployed App](https://a-petter-life.herokuapp.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributing
+This is a public repository and we welcome all contributions.  If you have any ideas or upgrades, we are all ears! Let's save these pets.
 
-### `npm run eject`
+## Tests
+To run tests, run the following command: 
+npm test
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Questions
+If you have any questions about the repo, open an issue or contact us directly on LinkedIn. 

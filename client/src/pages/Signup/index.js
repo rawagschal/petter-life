@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useMutation } from '@apollo/react-hooks';
 import Auth from "../../utils/auth";
 import { ADD_USER } from "../../utils/mutations";
@@ -8,6 +8,7 @@ import './index.css';
 function Signup(props) {
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
+  const history = useHistory();
 
   const handleFormSubmit = async event => {
     event.preventDefault();
@@ -18,6 +19,7 @@ function Signup(props) {
     });
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
+    history.push('/login');
   };
 
   const handleChange = event => {
@@ -57,7 +59,7 @@ function Signup(props) {
           </div>
           <button className="SignupBtn" type="submit">Submit</button>
         </form> 
-        <Link className="LoginLink" to="/login">Log In Instead</Link>
+        <Link className="LoginLink" to="/login">Login Instead</Link>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useHistory } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_OWNED_PET } from '../../utils/mutations';
 import './index.css';
@@ -6,12 +7,13 @@ import './index.css';
 function AddPetForm(props) {
   const [formState, setFormState] = useState({ petName: '', petType: '', petAge: '', petDescription: '', petLocation: '', petFixed: 'Yes', petGender: 'Male'});
   const [addOwnedPet] = useMutation(ADD_OWNED_PET);
+  const history = useHistory();
   const handleFormSubmit = async event => {
     console.log("form submit is working on click")
     event.preventDefault();
     console.log(formState)
 
-  const result = await addOwnedPet({
+    const result = await addOwnedPet({
       variables: {
         name: formState.petName,
         type: formState.petType,
@@ -22,7 +24,7 @@ function AddPetForm(props) {
         fixed: formState.petFixed
       }
     });
-
+    history.push('/');
     console.log(result);
   }
     
@@ -114,7 +116,11 @@ return (
             </div>
           </div>
         </div>
-        <button className="AddPetBtn" type="submit">Add Pet</button>
+
+        <div className="AddPetBtnContainer">
+          <button onClick="location.href='/'" className="AddPetBtn" type="submit">Add Pet</button>
+          <Link to="/" className="AddPetBtn">Home</Link>
+        </div> 
       </form>
     </div>
   </div>

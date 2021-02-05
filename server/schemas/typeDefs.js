@@ -30,7 +30,8 @@ const typeDefs = gql`
   }
   
   type Query {
-    user: User
+    me: User
+    user(_id: ID!): User
     pet(_id: ID!): Pet
     myLikedPets: [Pet]
     myOwnedPets: [Pet]
