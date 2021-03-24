@@ -13,6 +13,7 @@ export const QUERY_ME = gql`
         gender
         location
         fixed
+        petemail
         description
       }
        ownedPets{
@@ -23,6 +24,7 @@ export const QUERY_ME = gql`
         gender
         location
         fixed
+        petemail
         description
       }
     }
@@ -52,6 +54,7 @@ export const QUERY_PETS = gql`
       gender
       description
       location
+      petemail
       fixed
     }
   }

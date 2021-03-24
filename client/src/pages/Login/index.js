@@ -17,7 +17,6 @@ function Login(props) {
     try {
       const mutationResponse = await login({ variables: { username: formState.username, password: formState.password } })
       const token = mutationResponse.data.login.token;
-      // console.log(mutationResponse.data.login);
       dispatch({
         type: "LOGIN",
         payload: mutationResponse.data.login.user

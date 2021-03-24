@@ -1,6 +1,6 @@
 .SavedPetsSection {
     display: flex;
-    flex-direction: ;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     background-image: url('../../../src/assets/cover-image/petterLife-bg-13\ 2.png');

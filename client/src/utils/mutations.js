@@ -26,13 +26,14 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_OWNED_PET = gql`
-  mutation addOwnedPet($name: String!, $type: String!, $age: Int!, $fixed: String!, $location: Int!, $description: String!, $gender: String!) {
-    addOwnedPet(name: $name, type: $type, age: $age, fixed: $fixed, location: $location, description: $description, gender: $gender) {
+  mutation addOwnedPet($name: String!, $type: String!, $age: Int!, $fixed: String!, $location: Int!, $description: String!, $gender: String!, $petemail: String!) {
+    addOwnedPet(name: $name, type: $type, age: $age, fixed: $fixed, location: $location, description: $description, gender: $gender, petemail: $petemail) {
       name
       type
       description
       location
       age
+      petemail
       gender
       fixed
     }
@@ -48,6 +49,7 @@ export const ADD_LIKED_PET = gql`
       location
       age
       gender
+      petemail
       fixed
     }
   }

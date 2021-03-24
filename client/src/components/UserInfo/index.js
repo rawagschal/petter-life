@@ -8,19 +8,9 @@ import {Link} from "react-router-dom";
 
 function UserInfo() {
 
-  // const { loading, data } = useQuery(QUERY_USER);
-  // console.log('user data', data);
    const { globalStore, dispatch } = useStoreContext()
   return (
     <div className="UserInfoContainer">
-
-      {/* {!loading && data.user(user => (
-        <div className="UserListing" key={user._id}>
-          <div className="UsernameDisplay">
-              <div>{user.username}</div>
-          </div>
-        </div>
-      ))} */}
 
       {globalStore.user === null ? (
         <p></p>
