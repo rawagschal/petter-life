@@ -13,6 +13,9 @@ This was a group effort by Chris Meissner, Rachel Wagschal, Kim Mulligan, and Su
 
 ![Preview of App](./client/public/preview.png)
 
+## Application Features
+Users who create a listing for their pet will be prompted to enter specified information about their pet, which will be posted under "Pets available for adoption." Users looking to adopt a pet can save listings to a 'Saved Pets' list, viewable from the left sidebar. The left sidebar also access to a donation portal, an about page, and logout functionality.
+
 ## Contributing
 This is a public repository and we welcome all contributions.  If you have any ideas or upgrades, we are all ears! Let's save these pets.
 
