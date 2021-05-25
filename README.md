@@ -11,6 +11,11 @@ Yay, a "petter" life for everyone!
 
 This was a group effort by Chris Meissner, Rachel Wagschal, Kim Mulligan, and Suzanna Akins. 
 
+* Front End Development / Styling: Chris Meissner
+* Back End Development / Server Configuration: Rachel Wagschal
+* Front End Development / Listings Functionality: Kim Mulligan
+* Back End Development / Database Configuration: Suzanna Akins
+
 ![Preview of App](./client/public/preview.png)
 
 ## Application Features
